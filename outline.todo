@@ -1,4 +1,23 @@
 Design:
+ ☐ Sketch
+ ☐ Basic HTML
+ ☐ Layout CSS
+ ☐ Pure css? (npm install purecess --save)
 Logic:
+ ☐ Load svg images
+ ☐ Click shape to add to canvas
+ ☐ Mouse shape selection
+ ☐ Mouse shape movement
+ ☐ Mouse shape manipulation
+ ☐ Layer manipulation
+ ☐ Color swatches / color picker
 Polish:
+ ☐ Styling
+ ☐ Animations
 Enhancement:
+ ☐ Export data
+ ☐ Saved designs
+ ☐ Browse designs
+ ☐ Forkability
+ ☐ Fun console logging
+ ☐ Selectable themes

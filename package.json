@@ -1,17 +1,25 @@
 {
   "name": "u-shirt",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A t-shirt designer with shareable designs",
+  "main": "app.js",
   "scripts": {
+    "postinstall": "bower install",
+    "start": "http-server public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "jquery": "^2.2.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aoswalt/u-shirt.git"
   },
+  "keywords": [],
+  "author": "Adam Oswalt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aoswalt/u-shirt/issues"
+  },
+  "homepage": "https://github.com/aoswalt/u-shirt#readme",
   "devDependencies": {
-    "jasmine-core": "^2.4.1"
+    "http-server": "^0.9.0"
   }
 }

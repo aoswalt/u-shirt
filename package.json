@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/aoswalt/u-shirt#readme",
   "devDependencies": {
-    "http-server": "^0.9.0"
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.1.0",
+    "http-server": "^0.9.0",
+    "run-sequence": "^1.2.1"
   }
 }

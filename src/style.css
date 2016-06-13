@@ -1,3 +1,37 @@
-h1 {
-  color: tomato;
+body {
+  background: navy;
+  overflow: hidden;
+}
+
+nav {
+  background: tomato;
+}
+
+.navbar {
+  border: 0;
+  height: 5vh;
+  margin-bottom: 0;
+}
+
+/* TODO(adam): find fix for 100vh */
+.content {
+  border: 0;
+  height: 95vh;
+}
+
+.content .row,
+.content .row > div {
+  height: 100%;
+}
+
+.tools {
+  background: teal;
+}
+
+.design {
+  background: orange;
+}
+
+.layers {
+  background: forestgreen;
 }

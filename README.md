@@ -18,8 +18,9 @@ Each view has its own role to fill.
 
 ### Progress
 - Designer Page Design
-    + [x] overall layout
-    + [x] sections detailed layout
+    + [ ] wireframing
+    + [ ] overall layout
+    + [ ] sections detailed layout
     + [ ] define components/interactivity
 - Base Logic
     + [ ] working angular connections

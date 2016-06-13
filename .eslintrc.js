@@ -12,6 +12,8 @@ module.exports = {
         "sourceType": "script"
     },
     "globals": {
+        "angular": false,
+        "firebase": false
     },
     "rules": {
         "default-case": "warn",

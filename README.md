@@ -18,7 +18,7 @@ Each view has its own role to fill.
 
 ### Progress
 - Designer Page Design
-    + [ ] overall layout
+    + [x] overall layout
     + [ ] sections detailed layout
     + [ ] define components/interactivity
 - Base Logic

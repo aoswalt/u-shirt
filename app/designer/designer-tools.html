@@ -8,7 +8,7 @@
         <span class="caret" ng-class="{up:design.chooseShirtColor}"></span>
       </button>
       <ul class="shirt-color dropdown-menu" uib-dropdown-menu>
-        <li ng-click="design.shirtColor = color" ng-repeat="color in design.shirtColorList">
+        <li ng-click="design.setShirtColor(color)" ng-repeat="color in design.shirtColorList">
           {{color.name}} <span class="icon pull-right" ng-style="{background: color.rgb}"></span>
         </li>
       </ul>
@@ -28,7 +28,11 @@
       Fill
       <span class="icon" title="None"></span>
     </h3>
-    <div class="icon" ng-repeat="color in design.printColorList" ng-style="{background: color.rgb}" title="{{color.name}}"></div>
+    <div class="icon"
+      ng-repeat="color in design.printColorList"
+      ng-style="{background: color.rgb}"
+      title="{{color.name}}"
+      ng-click="design.setFillColor(color)"></div>
   </div>
 
   <div class="outline-color-section">
@@ -36,7 +40,11 @@
       Outline
       <span class="icon" title="None"></span>
     </h3>
-    <div class="icon" ng-repeat="color in design.printColorList" ng-style="{background: color.rgb}" title="{{color.name}}"></div>
+    <div class="icon"
+      ng-repeat="color in design.printColorList"
+      ng-style="{background: color.rgb}"
+      title="{{color.name}}"
+      ng-click="design.setOutlineColor(color)"></div>
   </div>
 </div>
 

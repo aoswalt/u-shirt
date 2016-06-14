@@ -13,27 +13,19 @@
   </span>
 
   <div class="fill-color-section">
-    <h3>Fill</h3>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
+    <h3>
+      Fill
+      <span class="icon" title="None"></span>
+    </h3>
+    <div class="icon" ng-repeat="color in design.printColors" ng-style="{background:'{{color.rgb}}'}" title="{{color.name}}"></div>
   </div>
 
   <div class="outline-color-section">
-    <h3>Outline</h3>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
-    <div class="icon"></div>
+    <h3>
+      Outline
+      <span class="icon" title="None"></span>
+    </h3>
+    <div class="icon" ng-repeat="color in design.printColors" ng-style="{background:'{{color.rgb}}'}" title="{{color.name}}"></div>
   </div>
 </div>
 

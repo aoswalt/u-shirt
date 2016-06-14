@@ -63,7 +63,7 @@
         <div class="panel panel-default">
           <div class="panel-heading" ng-click="design.isCollapsed = !design.isCollapsed">
             <h4 class="panel-title">
-              Shapes #1 <span class="caret"></span>
+              Shapes #1 <span class="caret" ng-class="{up: !design.isCollapsed}"></span>
             </h4>
           </div>
           <div uib-collapse="design.isCollapsed">

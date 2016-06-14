@@ -35,3 +35,28 @@ nav {
 .layers {
   background: forestgreen;
 }
+
+
+.color-area {
+  padding: .75rem;
+}
+
+.icon {
+  background: grey;
+  display: inline-block;
+  height: 3.25rem;
+  width: 3.25rem;
+}
+
+.shape-area .icon {
+  height: 4rem;
+  width: 4rem;
+}
+
+.shirt-color-section {
+  font-size: 2.25rem;
+}
+
+div[ng-click] {
+  cursor: pointer;
+}

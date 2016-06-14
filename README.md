@@ -22,7 +22,7 @@ Each view has its own role to fill.
     + [x] overall layout
     + [x] sections detailed layout
 - Base Logic
-    + [ ] working angular connections
+    + [x] working angular connections
     + [ ] color swatches
     + [ ] svg loading
     + [ ] svg parsing
@@ -67,6 +67,7 @@ Each view has its own role to fill.
 - selectable themes
 - export design data
 - email design for production
+- tweet/share design
 - option for custom work from design
 - tie into payment system (optional)
 - use pre-built SVG library?

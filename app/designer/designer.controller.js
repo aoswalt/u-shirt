@@ -2,6 +2,17 @@ angular.module("ushirt")
   .controller("designCtrl", function() {
     const design = this;
 
+    design.shirtColors = [
+      {rgb:"#fff", name:"White"},
+      {rgb:"#999", name:"Grey"},
+      {rgb:"#000", name:"Black"},
+      {rgb:"#faa", name:"Pink"},
+      {rgb:"#f00", name:"Red"},
+      {rgb:"#ff0", name:"Yellow"},
+      {rgb:"#080", name:"Green"},
+      {rgb:"#00c", name:"Royal Blue"},
+      {rgb:"#309", name:"Navy"}
+    ];
     design.printColors = [
       {pms:107,  rgb:"#f9e526", name:"Primrose Yellow"},
       {pms:109,  rgb:"#f9d616", name:"Lemon Yellow"},

@@ -1,0 +1,57 @@
+<div class="panel color-area">
+  <span class="shirt-color-section">
+    Shirt
+    <select class="shirt-color"></select>
+  </span>
+
+  <span class="pull-right">
+    <span class="rotation">
+      <div class="icon"></div>
+      <div class="icon"></div>
+    </span>
+    <div class="icon"></div>
+  </span>
+
+  <div class="fill-color-section">
+    <h3>Fill</h3>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+  </div>
+
+  <div class="outline-color-section">
+    <h3>Outline</h3>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+    <div class="icon"></div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading" ng-click="design.isCollapsed = !design.isCollapsed">
+    <h4 class="panel-title">
+      Shapes #1 <span class="caret" ng-class="{up: !design.isCollapsed}"></span>
+    </h4>
+  </div>
+  <div uib-collapse="design.isCollapsed">
+    <div class="panel-body shape-area">
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+      <div class="icon"></div>
+    </div>
+  </div>
+</div>

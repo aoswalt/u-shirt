@@ -47,11 +47,12 @@ nav {
 
 .icon {
   background: grey;
+  border: 1px solid grey;
   display: inline-block;
   height: 3.25rem;
-  width: 3.25rem;
-  vertical-align: middle;
   margin: .25rem;
+  vertical-align: middle;
+  width: 3.25rem;
 }
 
 .shape-area .icon {
@@ -71,6 +72,20 @@ nav {
 
 .shirt-color-section {
   font-size: 2.25rem;
+}
+
+.dropdown-menu > li {
+  font-size: 1.75rem;
+}
+
+.dropdown-menu > li:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.shirt-color .icon {
+  height: 1.75rem;
+  width: 1.75rem;
 }
 
 div[ng-click] {

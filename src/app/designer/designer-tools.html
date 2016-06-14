@@ -1,7 +1,18 @@
 <div class="panel color-area">
   <span class="shirt-color-section">
     Shirt
-    <select class="shirt-color"></select>
+    <span class="btn-group" uib-dropdown is-open="design.chooseShirtColor">
+      <button class="btn btn-primary" uib-dropdown-toggle>
+        {{design.shirtColor.name}}
+        <span class="icon" ng-style="{background: design.shirtColor.rgb}"></span>
+        <span class="caret" ng-class="{up:design.chooseShirtColor}"></span>
+      </button>
+      <ul class="shirt-color dropdown-menu" uib-dropdown-menu>
+        <li ng-click="design.shirtColor = color" ng-repeat="color in design.shirtColorList">
+          {{color.name}} <span class="icon pull-right" ng-style="{background: color.rgb}"></span>
+        </li>
+      </ul>
+    </span>
   </span>
 
   <span class="pull-right">
@@ -17,7 +28,7 @@
       Fill
       <span class="icon" title="None"></span>
     </h3>
-    <div class="icon" ng-repeat="color in design.printColors" ng-style="{background:'{{color.rgb}}'}" title="{{color.name}}"></div>
+    <div class="icon" ng-repeat="color in design.printColorList" ng-style="{background: color.rgb}" title="{{color.name}}"></div>
   </div>
 
   <div class="outline-color-section">
@@ -25,7 +36,7 @@
       Outline
       <span class="icon" title="None"></span>
     </h3>
-    <div class="icon" ng-repeat="color in design.printColors" ng-style="{background:'{{color.rgb}}'}" title="{{color.name}}"></div>
+    <div class="icon" ng-repeat="color in design.printColorList" ng-style="{background: color.rgb}" title="{{color.name}}"></div>
   </div>
 </div>
 

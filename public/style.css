@@ -24,6 +24,10 @@ nav {
   height: 100%;
 }
 
+.content div[ng-include] {
+  height: 95%;
+}
+
 .tools {
   background: teal;
 }
@@ -46,11 +50,23 @@ nav {
   display: inline-block;
   height: 3.25rem;
   width: 3.25rem;
+  vertical-align: middle;
+  margin: .25rem;
 }
 
 .shape-area .icon {
   height: 4rem;
   width: 4rem;
+}
+
+.layers .panel {
+  height: 100%;
+}
+
+.layers .controls .icon {
+  height: 1.75rem;
+  width: 1.75rem;
+  margin: 0;
 }
 
 .shirt-color-section {
@@ -74,4 +90,10 @@ canvas {
   border: 1px solid black;
   margin-top: 2rem;
   width: 95%;
+}
+
+.layer {
+  border: 1px solid black;
+  margin: .75rem .5rem;
+  text-align: center;
 }

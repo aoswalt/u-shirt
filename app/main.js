@@ -1,16 +1,11 @@
 angular.module("ushirt", ["ngRoute", "ui.bootstrap"])
   .config($routeProvider =>
     $routeProvider
-      .when("/", {
-        controller: "designCtrl",
-        controllerAs: "design",
-        templateUrl: "app/designer/designer.html"
-      })
       .otherwise("/")
-    )
-  //TODO(adam): set page title based on view routing
+  )
 
-
-  .controller("navCtrl", function() {
-
-  });
+  //NOTE(adam): set page title based on view routing
+  .run($rootScope =>
+    $rootScope.$on("$routeChangeSuccess", (event, current, prev) =>
+      $rootScope.title = current.$$route.title
+  ));

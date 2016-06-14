@@ -20,8 +20,7 @@ Each view has its own role to fill.
 - Designer Page Design
     + [x] wireframing
     + [x] overall layout
-    + [ ] sections detailed layout
-    + [ ] define components/interactivity
+    + [x] sections detailed layout
 - Base Logic
     + [ ] working angular connections
     + [ ] color swatches

@@ -69,3 +69,9 @@ div[ng-click] {
   border-bottom: 7px solid;
   border-top: 0;
 }
+
+canvas {
+  border: 1px solid black;
+  margin-top: 2rem;
+  width: 95%;
+}

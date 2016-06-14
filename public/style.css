@@ -60,3 +60,12 @@ nav {
 div[ng-click] {
   cursor: pointer;
 }
+
+.caret {
+  border-width: 7px;
+}
+
+.caret.up {
+  border-bottom: 7px solid;
+  border-top: 0;
+}

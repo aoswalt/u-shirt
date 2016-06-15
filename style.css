@@ -1,6 +1,6 @@
 body {
   background: navy;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 nav {
@@ -16,7 +16,7 @@ nav {
 /* TODO(adam): find fix for 100vh */
 .content {
   border: 0;
-  height: 95vh;
+  height: 94vh;
 }
 
 .content .row,
@@ -50,6 +50,7 @@ nav {
   border: 1px solid grey;
   cursor: pointer;
   display: inline-block;
+  fill-rule: evenodd;
   height: 3.25rem;
   margin: .25rem;
   vertical-align: middle;
@@ -59,6 +60,10 @@ nav {
 .shape-area .icon {
   height: 4rem;
   width: 4rem;
+}
+
+svg {
+  overflow: visible !important;
 }
 
 .layers .panel {

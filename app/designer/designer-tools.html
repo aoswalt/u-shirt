@@ -48,21 +48,20 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading" ng-click="design.isCollapsed = !design.isCollapsed">
+<div class="panel panel-default" ng-repeat="group in design.shapeData.groups">
+  <div class="panel-heading" ng-click="group.isOpen = !group.isOpen">
     <h4 class="panel-title">
-      Shapes #1 <span class="caret" ng-class="{up: !design.isCollapsed}"></span>
+      {{group.groupId}}<span class="caret" ng-class="{up: group.isOpen}"></span>
     </h4>
   </div>
-  <div uib-collapse="design.isCollapsed">
+  <div uib-collapse="!group.isOpen">
     <div class="panel-body shape-area">
-      <div class="icon"></div>
-      <div class="icon"></div>
-      <div class="icon"></div>
-      <div class="icon"></div>
-      <div class="icon"></div>
-      <div class="icon"></div>
-      <div class="icon"></div>
+      <div class="icon" ng-repeat="shape in group.shapes" ng-click="design.addShape(shape)">
+        <svg ng-attr-view_box="{{shape.viewBox}}" height="auto" width="auto">
+          <polygon ng-if="shape.type === 'polygon'" ng-attr-points="{{shape.data}}"/>
+          <path ng-if="shape.type === 'path'" ng-attr-d="{{shape.data}}" />
+        </svg>
+      </div>
     </div>
   </div>
 </div>

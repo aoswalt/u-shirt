@@ -1,7 +1,7 @@
 angular.module("ushirt")
-  .controller("designCtrl", function(colorFactory) {
+  .controller("designCtrl", function(colorFactory, shapeDataFactory, $timeout) {
     const design = this;
-    design.isCollapsed = true;  //TODO(adam): specfic to each shape set
+    shapeDataFactory.loadShapes(response => $timeout(design.shapeData = response.data));
 
     design.shirtColorList = colorFactory.getShirtColorList();
     design.printColorList = colorFactory.getPrintColorList();
@@ -12,6 +12,9 @@ angular.module("ushirt")
       outline: Object.assign({}, design.printColorList[0]),
       weight: 0
     };
+
+    design.addShape = console.log;
+
 
     design.setShirtColor = color => {
       design.shirtColor = color;

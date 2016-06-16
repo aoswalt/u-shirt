@@ -3,7 +3,6 @@ module.exports = {
         "browser": true,
         "es6": true,
         "jasmine": true,
-        "jquery": true,
         "mongo": true,
         "node": true
     },
@@ -18,7 +17,7 @@ module.exports = {
     "rules": {
         "default-case": "warn",
         "eqeqeq": ["warn", "smart"],
-        "indent": ["error", 2],
+        "indent": ["error", 2, {"SwitchCase": 1}],
         "new-parens": "warn",
         "no-fallthrough": "warn",
         "no-magic-numbers": ["error", {"ignore": [-1, 0, 1, 2]}],

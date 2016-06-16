@@ -291,8 +291,8 @@ angular.module("ushirt")
       }
 
       shape.paths.forEach(function(path) {
-        path.transform(t);
-        path.draw(ctx);
+        Path.transform(path, t);
+        Path.draw(path);
       });
 
       if(opts) {
@@ -373,6 +373,7 @@ angular.module("ushirt")
 
     return {
       setup: (setCanvas, setCtx) => {canvas = setCanvas; ctx = setCtx;},
-      parseElement: element => parseSvgElement(element)
+      parseElement: element => parseSvgElement(element),
+      drawShape: shape => Shape.drawShape(shape, {fillStyle:"black", strokeStyle:"white", strokeWeight: 1}, idmat)
     };
   });

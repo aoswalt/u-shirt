@@ -22,7 +22,7 @@ angular.module("ushirt")
     };
 
 
-    design.addShape = shape => console.log(svgParseFactory.parseElement(shape));
+    design.addShape = shape => svgParseFactory.drawShape(svgParseFactory.parseElement(shape));
 
 
     design.setShirtColor = color => {

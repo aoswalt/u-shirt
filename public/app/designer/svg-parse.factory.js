@@ -1,8 +1,7 @@
-/* global Vec, Matrix */
+/* global Vec, Matrix, Art */
 /* eslint-disable no-magic-numbers, no-console */
 angular.module("ushirt")
   .factory("svgParseFactory", () => {
-    const idmat = [1, 0, 0, 0, 1, 0, 0, 0, 1];
     const maxShapeSize = 400;
     let canvas = null;
     let ctx = null;
@@ -12,7 +11,7 @@ angular.module("ushirt")
       const viewBox = element.viewBox.split(" ");
       const width = parseInt(viewBox[2]) - parseInt(viewBox[0]);
       const height = parseInt(viewBox[3]) - parseInt(viewBox[1]);
-      const tmat = idmat.slice();   //NOTE(adam): copy identity values to work from
+      const tmat = Matrix.idmat.slice();   //NOTE(adam): copy identity values to work from
 
       let paths = [];   //NOTE(adam): paths to make up the svg
 
@@ -37,8 +36,8 @@ angular.module("ushirt")
       tmat[0] = scale;
       tmat[4] = scale;
 
-      const newShape = new Shape(width, height, paths);
-      Shape.addTransform(newShape, tmat);
+      const newShape = new Art.Shape(width, height, paths);
+      Art.Shape.addTransform(newShape, tmat);
       return newShape;
     }
 
@@ -92,11 +91,11 @@ angular.module("ushirt")
 
             startPoint = new Vec(curPoint.x, curPoint.y);
 
-            paths.push(new Path(startPoint));
+            paths.push(new Art.Path(startPoint));
             if(paths.length === 1) {
-              Path.addCommand(paths[0], ctx.beginPath, []);     // if first path, add beginPath command
+              Art.Path.addCommand(paths[0], ctx.beginPath, []);     // if first path, add beginPath command
             }
-            Path.addCommand(paths[paths.length - 1], ctx.moveTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.moveTo, [
               new Vec(curPoint.x, curPoint.y)
             ]);
             break;
@@ -108,7 +107,7 @@ angular.module("ushirt")
           case "L":
             curPoint = new Vec(tokens[i + 1], tokens[i + 2]);
             i += 3;
-            Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
               new Vec(curPoint.x, curPoint.y)
             ]);
             break;
@@ -119,7 +118,7 @@ angular.module("ushirt")
           case "H":
             curPoint.x = tokens[i + 1];
             i += 2;
-            Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
               new Vec(curPoint.x, curPoint.y)
             ]);
             break;
@@ -130,7 +129,7 @@ angular.module("ushirt")
           case "V":
             curPoint.y = tokens[i + 1];
             i += 2;
-            Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
               new Vec(curPoint.x, curPoint.y)
             ]);
             break;
@@ -144,7 +143,7 @@ angular.module("ushirt")
             tokens[i + 6] += curPoint.y;
             // fallthrough
           case "C":
-            Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
               new Vec(tokens[i + 1], tokens[i + 2]),
               new Vec(tokens[i + 3], tokens[i + 4]),
               new Vec(tokens[i + 5], tokens[i + 6])
@@ -162,7 +161,7 @@ angular.module("ushirt")
             tokens[i + 4] += curPoint.y;
             // fallthrough
           case "S":
-            Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
               lastControlPoint.clone(),
               new Vec(tokens[i + 1], tokens[i + 2]),
               new Vec(tokens[i + 3], tokens[i + 4])
@@ -180,7 +179,7 @@ angular.module("ushirt")
             tokens[i + 4] += curPoint.y;
             // fallthrough
           case "Q":
-            Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
               new Vec(tokens[i + 1], tokens[i + 2]),
               new Vec(tokens[i + 3], tokens[i + 4])
             ]);
@@ -195,7 +194,7 @@ angular.module("ushirt")
             tokens[i + 2] += curPoint.y;
             // fallthrough
           case "T":
-            Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
+            Art.Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
               lastControlPoint.clone(),
               new Vec(tokens[i + 1], tokens[i + 2])
             ]);
@@ -216,10 +215,10 @@ angular.module("ushirt")
             // may not work on more complex paths, needs further testing
             if(paths.length > 1 && ctx.isPointInPath(paths[paths.length - 1].startPoint.x, paths[paths.length - 1].startPoint.y)) {
               //console.log("in path");
-              Path.reverse(paths[paths.length - 1]);
+              Art.Path.reverse(paths[paths.length - 1]);
             }
 
-            Path.addCommand(paths[paths.length - 1], ctx.closePath, []);
+            Art.Path.addCommand(paths[paths.length - 1], ctx.closePath, []);
 
             curPoint = new Vec(startPoint.x, startPoint.y);
             ++i;
@@ -243,25 +242,25 @@ angular.module("ushirt")
       let i = 0;
       const startPoint = new Vec(tokens[i++], tokens[i++]);
 
-      const path = new Path(startPoint);
-      Path.addCommand(path, ctx.moveTo, [
+      const path = new Art.Path(startPoint);
+      Art.Path.addCommand(path, ctx.moveTo, [
         new Vec(startPoint.x, startPoint.y)
       ]);
 
       while(i + 1 < tokens.length) {
-        Path.addCommand(path, ctx.lineTo, [
+        Art.Path.addCommand(path, ctx.lineTo, [
           new Vec(tokens[i], tokens[i + 1])
         ]);
         i += 2;
       }
 
       if(ctx.isPointInPath(startPoint.x, startPoint.y)) {
-        Path.reverse(path);
+        Art.Path.reverse(path);
       }
 
       //NOTE(adam): adding after to preserve reverseDirection
-      Path.prependCommand(path, ctx.beginPath, []);
-      Path.addCommand(path, ctx.closePath, []);
+      Art.Path.prependCommand(path, ctx.beginPath, []);
+      Art.Path.addCommand(path, ctx.closePath, []);
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -269,109 +268,9 @@ angular.module("ushirt")
       return [path];
     }
 
-
-    //NOTE(adam): shape operations
-    function Shape(width, height, paths) {
-      this.initWidth = width;
-      this.initHeight = height;
-      this.width = width;
-      this.height = height;
-      this.paths = paths;
-
-      this.transforms = [];
-      this.finalTransform = idmat.slice();
-    }
-
-    Shape.drawShape = (shape, opts, tmat) => {
-      let t = idmat.slice();
-      if(tmat) {
-        t = Matrix.multmm(tmat, shape.finalTransform);
-      }
-
-      shape.paths.forEach(function(path) {
-        Path.transform(path, t);
-        Path.draw(path);
-      });
-
-      if(opts) {
-        ctx.fillStyle = opts.fillStyle;
-        if(opts.fillStyle !== "none") {
-          ctx.fill();
-        }
-
-        ctx.strokeStyle = opts.strokeStyle;
-        ctx.lineWidth = opts.strokeWeight;
-        if(opts.strokeStyle !== "none" && opts.strokeWeight !== 0) {
-          ctx.stroke();
-        }
-      }
-    };
-
-    Shape.addTransform = (shape, tmat) => {
-      shape.transforms.push(tmat);
-      Shape.calcFinalTransform(shape);
-
-      shape.width = Math.round(shape.initWidth * shape.finalTransform[0]);
-      shape.height = Math.round(shape.initHeight * shape.finalTransform[4]);
-
-      shape.paths.forEach(path => Path.transform(path, shape.finalTransform));
-    };
-
-    Shape.calcFinalTransform = shape => {
-      let tmat = idmat.slice();
-      shape.transforms.forEach(trans => tmat = Matrix.multmm(tmat, trans));
-      shape.finalTransform = tmat;
-    };
-
-
-    //NOTE(adam): path operations
-    function Path(startPoint) {
-      this.startPoint = startPoint;
-      this.commands = [];
-    }
-    Path.addCommand = (path, commandName, args) => {
-      path.commands.push(new Command(commandName, args));
-      Path.drawLastCommand(path);
-    };
-
-    Path.prependCommand = (path, commandName, args) => {
-      path.commands.unshift(new Command(commandName, args));
-      Path.drawLastCommand(path);
-    };
-
-    Path.reverse = path => {
-      const first = path.commands.shift();
-      path.commands.reverse().unshift(first);
-    };
-
-    Path.draw = path => path.commands.forEach(cmd => Command.execute(cmd));
-
-    Path.drawLastCommand = path =>
-      Command.execute(path.commands[path.commands.length - 1]);
-
-    Path.transform = (path, tmat) =>
-      path.commands.map(cmd => Command.transform(cmd, tmat));
-
-
-    //NOTE(adam): command operations
-    function Command(name, args) {
-      this.name = name;
-      this.args = args;
-      this.tArgs = args.slice();
-    }
-    Command.execute = (cmd) => {
-      const applyArgs = [];
-      cmd.tArgs.forEach(a => applyArgs.push(a.x, a.y));
-      cmd.name.apply(ctx, applyArgs);
-    };
-
-    Command.transform = (cmd, tmat) =>
-      cmd.tArgs = cmd.args.map(a => Vec.transform(a, tmat)).slice();
-
-
     return {
       setup: (setCanvas, setCtx) => {canvas = setCanvas; ctx = setCtx;},
       parseElement: element => parseSvgElement(element),
-      drawShape: shape => Shape.drawShape(shape, {fillStyle:"black", strokeStyle:"green", strokeWeight: 10}, idmat)
+      drawShape: shape => Art.Shape.drawShape(shape, {fillStyle:"black", strokeStyle:"green", strokeWeight: 10}, Matrix.idmat)
     };
   });

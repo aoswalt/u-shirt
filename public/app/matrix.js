@@ -2,6 +2,8 @@
 //NOTE(adam): matrix operations for 3x3 matrices
 function Matrix() {}
 
+Matrix.idmat = [1, 0, 0, 0, 1, 0, 0, 0, 1];
+
 Matrix.invert = (m) => {
   const detM = Matrix.det(m);
   const idetM = 1/detM;
@@ -20,7 +22,7 @@ Matrix.det = (m) => {
   } else if(m.length === 9) {
     return m[0]*m[4]*m[8] + m[1]*m[5]*m[6] + m[2]*m[3]*m[7] - m[2]*m[4]*m[6] - m[1]*m[3]*m[8] - m[0]*m[5]*m[7];
   } else {
-    console.log("ERROR: Making determinate of unsupported size.");
+    console.log("ERROR: Making determinate of unsupported size.");  // eslint-disable-line no-console
   }
 };
 

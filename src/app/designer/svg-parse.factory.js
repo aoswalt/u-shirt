@@ -61,18 +61,16 @@ angular.module("ushirt")
     function getCommandsFromData(data) {
       //console.log(data);
       const paths = [];
-      const tokens = data.split(" ");
+      let tokens = data.split(" ");
 
       let startPoint = new Vec(0, 0);
       let curPoint = new Vec(0, 0);
       let lastControlPoint = new Vec(0, 0);
 
       // convert numbers from strings to ints
-      tokens.forEach(token => {
+      tokens = tokens.map(token => {
         const num = parseInt(token, 10);
-        if(!isNaN(num)) {
-          token = num;
-        }
+        return !isNaN(num) ? num : token;
       });
 
       let curCode = "";
@@ -316,7 +314,7 @@ angular.module("ushirt")
       shape.width = Math.round(shape.initWidth * shape.finalTransform[0]);
       shape.height = Math.round(shape.initHeight * shape.finalTransform[4]);
 
-      shape.paths.map(path => Path.transform(path, shape.finalTransform));
+      shape.paths.forEach(path => Path.transform(path, shape.finalTransform));
     };
 
     Shape.calcFinalTransform = shape => {
@@ -374,6 +372,6 @@ angular.module("ushirt")
     return {
       setup: (setCanvas, setCtx) => {canvas = setCanvas; ctx = setCtx;},
       parseElement: element => parseSvgElement(element),
-      drawShape: shape => Shape.drawShape(shape, {fillStyle:"black", strokeStyle:"white", strokeWeight: 1}, idmat)
+      drawShape: shape => Shape.drawShape(shape, {fillStyle:"black", strokeStyle:"green", strokeWeight: 10}, idmat)
     };
   });

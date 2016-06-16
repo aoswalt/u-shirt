@@ -13,14 +13,6 @@ angular.module("ushirt")
       weight: 0
     };
 
-    design.setUp = () => {
-      const canvas = document.querySelector("canvas");
-      canvas.width = 1300;
-      canvas.height = 1500;
-      const ctx = canvas.getContext("2d");
-      svgParseFactory.setup(canvas, ctx);
-    };
-
 
     design.addShape = shape => svgParseFactory.drawShape(svgParseFactory.parseElement(shape));
 

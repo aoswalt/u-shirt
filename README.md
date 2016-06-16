@@ -26,7 +26,7 @@ Each view has its own role to fill.
     + [x] color swatches
     + [x] svg loading as json
     + [x] svg data parsing
-    + [ ] draw canvas shape
+    + [x] draw canvas shape
     + [ ] layering
     + [ ] layer ordering
     + [ ] mouse shape selection

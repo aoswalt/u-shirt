@@ -2,8 +2,13 @@
 /* eslint-disable no-magic-numbers, no-console */
 var Art = (function(art) {  // eslint-disable-line no-var
   const maxShapeSize = 400;
-  let  canvas = null;
-  let ctx = null;
+  art.canvas = null;
+  art.ctx = null;
+
+  art.setup = (canvas, ctx) => {
+    art.canvas = canvas;
+    art.ctx = ctx;
+  },
 
 
   art.parseSvg = function(element) {
@@ -92,9 +97,9 @@ var Art = (function(art) {  // eslint-disable-line no-var
 
           paths.push(new Art.Path(startPoint));
           if(paths.length === 1) {
-            Art.Path.addCommand(paths[0], ctx.beginPath, []);     // if first path, add beginPath command
+            Art.Path.addCommand(paths[0], art.ctx.beginPath, []);     // if first path, add beginPath command
           }
-          Art.Path.addCommand(paths[paths.length - 1], ctx.moveTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.moveTo, [
             new Vec(curPoint.x, curPoint.y)
           ]);
           break;
@@ -106,7 +111,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
         case "L":
           curPoint = new Vec(tokens[i + 1], tokens[i + 2]);
           i += 3;
-          Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.lineTo, [
             new Vec(curPoint.x, curPoint.y)
           ]);
           break;
@@ -117,7 +122,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
         case "H":
           curPoint.x = tokens[i + 1];
           i += 2;
-          Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.lineTo, [
             new Vec(curPoint.x, curPoint.y)
           ]);
           break;
@@ -128,7 +133,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
         case "V":
           curPoint.y = tokens[i + 1];
           i += 2;
-          Art.Path.addCommand(paths[paths.length - 1], ctx.lineTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.lineTo, [
             new Vec(curPoint.x, curPoint.y)
           ]);
           break;
@@ -142,7 +147,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
           tokens[i + 6] += curPoint.y;
           // fallthrough
         case "C":
-          Art.Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.bezierCurveTo, [
             new Vec(tokens[i + 1], tokens[i + 2]),
             new Vec(tokens[i + 3], tokens[i + 4]),
             new Vec(tokens[i + 5], tokens[i + 6])
@@ -160,7 +165,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
           tokens[i + 4] += curPoint.y;
           // fallthrough
         case "S":
-          Art.Path.addCommand(paths[paths.length - 1], ctx.bezierCurveTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.bezierCurveTo, [
             lastControlPoint.clone(),
             new Vec(tokens[i + 1], tokens[i + 2]),
             new Vec(tokens[i + 3], tokens[i + 4])
@@ -178,7 +183,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
           tokens[i + 4] += curPoint.y;
           // fallthrough
         case "Q":
-          Art.Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.quadraticCurveTo, [
             new Vec(tokens[i + 1], tokens[i + 2]),
             new Vec(tokens[i + 3], tokens[i + 4])
           ]);
@@ -193,7 +198,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
           tokens[i + 2] += curPoint.y;
           // fallthrough
         case "T":
-          Art.Path.addCommand(paths[paths.length - 1], ctx.quadraticCurveTo, [
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.quadraticCurveTo, [
             lastControlPoint.clone(),
             new Vec(tokens[i + 1], tokens[i + 2])
           ]);
@@ -212,12 +217,12 @@ var Art = (function(art) {  // eslint-disable-line no-var
         case "Z":
           //console.log(paths[paths.length - 1].startX + ", " + paths[paths.length - 1].startY)
           // may not work on more complex paths, needs further testing
-          if(paths.length > 1 && ctx.isPointInPath(paths[paths.length - 1].startPoint.x, paths[paths.length - 1].startPoint.y)) {
+          if(paths.length > 1 && art.ctx.isPointInPath(paths[paths.length - 1].startPoint.x, paths[paths.length - 1].startPoint.y)) {
             //console.log("in path");
             Art.Path.reverse(paths[paths.length - 1]);
           }
 
-          Art.Path.addCommand(paths[paths.length - 1], ctx.closePath, []);
+          Art.Path.addCommand(paths[paths.length - 1], art.ctx.closePath, []);
 
           curPoint = new Vec(startPoint.x, startPoint.y);
           ++i;
@@ -230,7 +235,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     }
 
     //NOTE(adam): clear the canvas after test drawing
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    art.ctx.clearRect(0, 0, art.canvas.width, art.canvas.height);
 
     return paths;
   }
@@ -242,32 +247,31 @@ var Art = (function(art) {  // eslint-disable-line no-var
     const startPoint = new Vec(tokens[i++], tokens[i++]);
 
     const path = new Art.Path(startPoint);
-    Art.Path.addCommand(path, ctx.moveTo, [
+    Art.Path.addCommand(path, art.ctx.moveTo, [
       new Vec(startPoint.x, startPoint.y)
     ]);
 
     while(i + 1 < tokens.length) {
-      Art.Path.addCommand(path, ctx.lineTo, [
+      Art.Path.addCommand(path, art.ctx.lineTo, [
         new Vec(tokens[i], tokens[i + 1])
       ]);
       i += 2;
     }
 
-    if(ctx.isPointInPath(startPoint.x, startPoint.y)) {
+    if(art.ctx.isPointInPath(startPoint.x, startPoint.y)) {
       Art.Path.reverse(path);
     }
 
     //NOTE(adam): adding after to preserve reverseDirection
-    Art.Path.prependCommand(path, ctx.beginPath, []);
-    Art.Path.addCommand(path, ctx.closePath, []);
+    Art.Path.prependCommand(path, art.ctx.beginPath, []);
+    Art.Path.addCommand(path, art.ctx.closePath, []);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    art.ctx.clearRect(0, 0, art.canvas.width, art.canvas.height);
 
     //NOTE(adam): returning array to match commands from data
     return [path];
   }
 
-  art.setup = (setCanvas, setCtx) => {canvas = setCanvas; ctx = setCtx;},
   art.drawShape = shape =>
     Art.Shape.drawShape(shape,
       {fillStyle:"black", strokeStyle:"green", strokeWeight: 10},

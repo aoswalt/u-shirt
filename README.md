@@ -24,9 +24,9 @@ Each view has its own role to fill.
 - Base Logic
     + [x] working angular connections
     + [x] color swatches
-    + [x] svg loading
-    + [ ] svg parsing
-    + [ ] svg to canvas shape
+    + [x] svg loading as json
+    + [x] svg data parsing
+    + [ ] draw canvas shape
     + [ ] layering
     + [ ] layer ordering
     + [ ] mouse shape selection

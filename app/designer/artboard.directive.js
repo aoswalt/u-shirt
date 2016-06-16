@@ -1,6 +1,6 @@
-/* global Vec */
+/* global Vec, Art */
 angular.module("ushirt")
-  .directive("artboard", (svgParseFactory) => {
+  .directive("artboard", () => {
     const width = 1300;
     const height = 1500;
 
@@ -29,7 +29,7 @@ angular.module("ushirt")
         const ctx = canvas.getContext("2d");
         Art.ctx = ctx;
 
-        svgParseFactory.setup(canvas, ctx);
+        Art.setup(canvas, ctx);
 
         element.css({
           display: "block",

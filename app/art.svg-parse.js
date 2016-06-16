@@ -6,7 +6,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
   let ctx = null;
 
 
-  function parseSvgElement(element) {
+  art.parseSvg = function(element) {
     const viewBox = element.viewBox.split(" ");
     const width = parseInt(viewBox[2]) - parseInt(viewBox[0]);
     const height = parseInt(viewBox[3]) - parseInt(viewBox[1]);
@@ -38,7 +38,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     const newShape = new Art.Shape(width, height, paths);
     Art.Shape.addTransform(newShape, tmat);
     return newShape;
-  }
+  };
 
   //TODO(adam): combine clean strings?
   function cleanPathString(d) {

@@ -12,7 +12,8 @@ module.exports = {
     },
     "globals": {
         "angular": false,
-        "firebase": false
+        "firebase": false,
+        "Art": true
     },
     "rules": {
         "default-case": "warn",

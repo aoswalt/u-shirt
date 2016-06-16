@@ -1,4 +1,3 @@
-/* global Art */
 angular.module("ushirt")
   .controller("designCtrl", function(colorFactory, shapeDataFactory, $timeout) {
     const design = this;

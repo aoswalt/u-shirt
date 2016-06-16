@@ -5,6 +5,11 @@ var Art = (function(art) {  // eslint-disable-line no-var
   art.canvas = null;
   art.ctx = null;
 
+  art.setup = (canvas, ctx) => {
+    art.canvas = canvas;
+    art.ctx = ctx;
+  },
+
 
   art.parseSvg = function(element) {
     const viewBox = element.viewBox.split(" ");
@@ -267,7 +272,6 @@ var Art = (function(art) {  // eslint-disable-line no-var
     return [path];
   }
 
-  art.setup = (canvas, ctx) => {art.canvas = canvas; art.ctx = ctx;},
   art.drawShape = shape =>
     Art.Shape.drawShape(shape,
       {fillStyle:"black", strokeStyle:"green", strokeWeight: 10},

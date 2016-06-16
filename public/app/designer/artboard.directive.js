@@ -1,4 +1,4 @@
-/* global Vec, Art */
+/* global Vec */
 angular.module("ushirt")
   .directive("artboard", () => {
     const width = 1300;

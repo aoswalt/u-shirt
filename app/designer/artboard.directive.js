@@ -27,6 +27,7 @@ angular.module("ushirt")
         const clientRect = canvas.getBoundingClientRect();
         const scale = Math.min(canvas.width / clientRect.width, canvas.height / clientRect.height);
         const ctx = canvas.getContext("2d");
+        Art.ctx = ctx;
 
         svgParseFactory.setup(canvas, ctx);
 

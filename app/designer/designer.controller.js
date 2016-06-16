@@ -9,7 +9,7 @@ angular.module("ushirt")
     design.shirtColor = design.shirtColorList[0];
     design.style = {
       fill: Object.assign({}, design.printColorList[0]),
-      outline: Object.assign({}, design.printColorList[0]),
+      stroke: Object.assign({}, design.printColorList[0]),
       weight: 0
     };
 
@@ -28,7 +28,7 @@ angular.module("ushirt")
     };
 
     design.setOutlineColor = color => {
-      Object.assign(design.style.outline, color);
+      Object.assign(design.style.stroke, color);
       console.log("design.style", design.style);
     };
 

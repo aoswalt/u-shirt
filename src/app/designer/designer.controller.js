@@ -1,5 +1,6 @@
+/* global Art */
 angular.module("ushirt")
-  .controller("designCtrl", function(colorFactory, shapeDataFactory, svgParseFactory, $timeout) {
+  .controller("designCtrl", function(colorFactory, shapeDataFactory, $timeout) {
     const design = this;
     shapeDataFactory.loadShapes(response => $timeout(design.shapeData = response.data));
 
@@ -14,7 +15,7 @@ angular.module("ushirt")
     };
 
 
-    design.addShape = shape => svgParseFactory.drawShape(svgParseFactory.parseElement(shape));
+    design.addShape = shape => Art.drawShape(Art.parseSvg(shape));
 
 
     design.setShirtColor = color => {

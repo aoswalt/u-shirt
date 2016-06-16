@@ -1,0 +1,43 @@
+{
+  "groups": [
+    {
+      "groupId": "basic-shapes",
+      "shapes":[
+        {
+          "id": "box",
+          "viewBox": "0 0 4054 2928",
+          "type": "polygon",
+          "data": "0,0 4050,0 4050,2925 0,2925"
+        }
+      ]
+    },
+    {
+      "groupId": "compound-shapes",
+      "shapes": [
+        {
+          "id": "trimmed-shape",
+          "viewBox": "0 0 545 742",
+          "type": "path",
+          "data": "M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 91l121 0 0 175 -121 0 0 -175z"
+        },
+        {
+          "id": "trimmed-shape-2",
+          "viewBox": "0 0 545 742",
+          "type": "path",
+          "data": "M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 201 l 0 -175 121 0 0 175 -121 0z"
+        }
+      ]
+    },
+    {
+      "groupId": "irregular-shapes",
+      "shapes": [
+        {
+          "id": "flattened-blob",
+          "viewBox": "0 0 4054 2928",
+          "type": "path",
+          "data": "M889,763c394,-503 1162,-637 2166,0 420,266 222,836 0,1334l-2359 -176 193 -1159 0 1z"
+        }
+      ]
+    }
+  ]
+}

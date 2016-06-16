@@ -1,0 +1,24 @@
+<svg id="svgIndex" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+
+    <g id="svg_basicShapes">
+        <symbol id="BlueBox" viewBox="0 0 4054 2928">
+            <polygon points="0,0 4050,0 4050,2925 0,2925 "/>
+        </symbol>
+    </g>
+
+    <g id="svg_compoundShapes">
+        <symbol id="TrimmedShape" viewBox="0 0 545 742">
+            <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 91l121 0 0 175 -121 0 0 -175z"/>
+        </symbol>
+
+        <symbol id="TrimmedShape2" viewBox="0 0 545 742">
+            <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 201 l 0 -175 121 0 0 175 -121 0z"/>
+        </symbol>
+    </g>
+
+    <g id="svg_irregularShapes">
+        <symbol id="GreenShape" viewBox="0 0 4054 2928">
+            <path d="M889,763c394,-503 1162,-637 2166,0 420,266 222,836 0,1334l-2359 -176 193 -1159 0 1z"/>
+        </symbol>
+    </g>
+</svg>

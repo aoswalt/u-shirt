@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .controller("designCtrl", function(colorFactory, shapeDataFactory, $timeout) {
+  .controller("designCtrl", function(colorFactory, shapeDataFactory, svgParseFactory, $timeout) {
     const design = this;
     shapeDataFactory.loadShapes(response => $timeout(design.shapeData = response.data));
 
@@ -13,7 +13,16 @@ angular.module("ushirt")
       weight: 0
     };
 
-    design.addShape = console.log;
+    design.setUp = () => {
+      const canvas = document.querySelector("canvas");
+      canvas.width = 1300;
+      canvas.height = 1500;
+      const ctx = canvas.getContext("2d");
+      svgParseFactory.setup(canvas, ctx);
+    };
+
+
+    design.addShape = shape => console.log(svgParseFactory.parseElement(shape));
 
 
     design.setShirtColor = color => {

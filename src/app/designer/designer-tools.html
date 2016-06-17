@@ -4,12 +4,12 @@
     <span class="btn-group" uib-dropdown is-open="design.chooseShirtColor">
       <button class="btn btn-primary" uib-dropdown-toggle>
         {{design.shirtColor.name}}
-        <span class="icon" ng-style="{background: design.shirtColor.rgb}"></span>
+        <span class="swatch" ng-style="{background: design.shirtColor.rgb}"></span>
         <span class="caret" ng-class="{up:design.chooseShirtColor}"></span>
       </button>
       <ul class="shirt-color dropdown-menu" uib-dropdown-menu>
-        <li ng-click="design.setShirtColor(color)" ng-repeat="color in design.shirtColorList">
-          {{color.name}} <span class="icon pull-right" ng-style="{background: color.rgb}"></span>
+        <li ng-click="design.setShirtColor(color)" ng-repeat="color in design.shirtColors">
+          {{color.name}} <span class="swatch pull-right" ng-style="{background: color.rgb}"></span>
         </li>
       </ul>
     </span>
@@ -26,10 +26,11 @@
   <div class="fill-color-section">
     <h3>
       Fill
-      <span class="icon" title="None"></span>
+      <span class="swatch" title="None"></span>
     </h3>
-    <div class="icon"
-      ng-repeat="color in design.printColorList"
+    <div class="swatch"
+      ng-repeat="color in design.fillColors"
+      ng-class="{selected: color.selected}"
       ng-style="{background: color.rgb}"
       title="{{color.name}}"
       ng-click="design.setFillColor(color)"></div>
@@ -38,13 +39,14 @@
   <div class="stroke-color-section">
     <h3>
       Stroke
-      <span class="icon" title="None"></span>
+      <span class="swatch" title="None"></span>
     </h3>
-    <div class="icon"
-      ng-repeat="color in design.printColorList"
+    <div class="swatch"
+      ng-repeat="color in design.strokeColors"
+      ng-class="{selected: color.selected}"
       ng-style="{background: color.rgb}"
       title="{{color.name}}"
-      ng-click="design.setOutlineColor(color)"></div>
+      ng-click="design.setStrokeColor(color)"></div>
   </div>
 </div>
 

@@ -1,35 +1,33 @@
 angular.module("ushirt")
-  .controller("designCtrl", function(colorFactory, shapeDataFactory, $timeout) {
+  .controller("designCtrl", function(settingsFactory, shapeDataFactory, $timeout) {
     const design = this;
     shapeDataFactory.loadShapes(response => $timeout(design.shapeData = response.data));
 
-    design.shirtColorList = colorFactory.getShirtColorList();
-    design.printColorList = colorFactory.getPrintColorList();
-
-    design.shirtColor = design.shirtColorList[0];
-    design.style = {
-      fill: Object.assign({}, design.printColorList[0]),
-      stroke: Object.assign({}, design.printColorList[0]),
-      weight: 0
-    };
+    design.shirtColors = settingsFactory.shirtColorList;
+    design.shirtColor = design.shirtColors[0];
+    design.fillColors = settingsFactory.fillColorList;
+    design.strokeColors = settingsFactory.strokeColorList;
 
 
+    //TODO(adam): only need to add to layers
     design.addShape = shape => Art.drawShape(Art.parseSvg(shape));
-
 
     design.setShirtColor = color => {
       design.shirtColor = color;
-      console.log("design.shirtColor", design.shirtColor);
+      settingsFactory.setShirtColor(color);
     };
 
     design.setFillColor = color => {
-      Object.assign(design.style.fill, color);
-      console.log("design.style", design.style);
+      design.fillColors.forEach(c => c.selected = false);
+      color.selected = true;
+      settingsFactory.setFillColor(color);
     };
 
-    design.setOutlineColor = color => {
-      Object.assign(design.style.stroke, color);
-      console.log("design.style", design.style);
+    design.setStrokeColor = color => {
+      design.strokeColors.forEach(c => c.selected = false);
+      color.selected = true;
+      settingsFactory.setStrokeColor(color);
     };
 
+    design.setStrokeWeight = settingsFactory.setStrokeWeight;
   });

@@ -45,6 +45,7 @@ nav {
   padding: .75rem;
 }
 
+.swatch,
 .icon {
   background: grey;
   border: 1px solid grey;
@@ -89,7 +90,7 @@ svg {
   cursor: pointer;
 }
 
-.shirt-color .icon {
+.shirt-color .swatch {
   height: 1.75rem;
   width: 1.75rem;
 }
@@ -121,4 +122,5 @@ canvas {
 
 .selected {
   background: grey;
+  border: 2px solid blue;
 }

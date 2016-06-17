@@ -18,15 +18,15 @@ angular.module("ushirt")
     };
 
     design.setFillColor = color => {
+      settingsFactory.setFillColor(color);
       design.fillColors.forEach(c => c.selected = false);
       color.selected = true;
-      settingsFactory.setFillColor(color);
     };
 
     design.setStrokeColor = color => {
+      settingsFactory.setStrokeColor(color);
       design.strokeColors.forEach(c => c.selected = false);
       color.selected = true;
-      settingsFactory.setStrokeColor(color);
     };
 
     design.setStrokeWeight = settingsFactory.setStrokeWeight;

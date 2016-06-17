@@ -36,14 +36,21 @@ angular.module("ushirt")
       const newIndex = index + dir;
       if(newIndex === -1 || newIndex === list.length) { return list; }
 
-      const layer = list[index];
-      list = [...list.slice(0, index),
-              ...list.slice(index + 1, list.length)];
+      const layer = list.splice(index, 1)[0];
       list = [...list.slice(0, newIndex),
               layer,
               ...list.slice(newIndex, list.length)];
       drawList();
       return list;
+    };
+
+    const deleteSelectedLayer = () => {
+      if(!selectedLayer) { return; }
+
+      const index = list.indexOf(selectedLayer);
+      list.splice(index, 1);
+      selectedLayer = null;
+      drawList();
     };
 
     const drawList = () => list.forEach(l => Art.drawShape(l.shape));
@@ -52,6 +59,7 @@ angular.module("ushirt")
       list,
       addLayer,
       selectLayer,
-      moveSelectedLayer
+      moveSelectedLayer,
+      deleteSelectedLayer
     };
   });

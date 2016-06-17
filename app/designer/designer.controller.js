@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .controller("designCtrl", function(settingsFactory, shapeDataFactory) {
+  .controller("designCtrl", function(settingsFactory, shapeDataFactory, layersFactory) {
     const design = this;
     shapeDataFactory.loadShapes(response => design.shapeData = response.data);
 
@@ -9,8 +9,7 @@ angular.module("ushirt")
     design.strokeColors = settingsFactory.strokeColorList;
 
 
-    //TODO(adam): only need to add to layers
-    design.addShape = shape => Art.drawShape(Art.parseSvg(shape));
+    design.addShape = layersFactory.addLayer;
 
     design.setShirtColor = color => {
       design.shirtColor = color;

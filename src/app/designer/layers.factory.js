@@ -1,6 +1,6 @@
 angular.module("ushirt")
   .factory("layersFactory", () => {
-    const list = [];
+    let list = [];
     let selectedLayer = null;
 
     function Envelope(shape) {
@@ -29,11 +29,29 @@ angular.module("ushirt")
       }
     };
 
+    const moveSelectedLayer = dir => {
+      if(!selectedLayer) { return; }
+
+      const index = list.indexOf(selectedLayer);
+      const newIndex = index + dir;
+      if(newIndex === -1 || newIndex === list.length) { return list; }
+
+      const layer = list[index];
+      list = [...list.slice(0, index),
+              ...list.slice(index + 1, list.length)];
+      list = [...list.slice(0, newIndex),
+              layer,
+              ...list.slice(newIndex, list.length)];
+      drawList();
+      return list;
+    };
+
     const drawList = () => list.forEach(l => Art.drawShape(l.shape));
 
     return {
       list,
       addLayer,
-      selectLayer
+      selectLayer,
+      moveSelectedLayer
     };
   });

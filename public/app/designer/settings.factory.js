@@ -6,8 +6,8 @@ angular.module("ushirt")
 
     let shirtColor = shirtColorList[0];
     const style = {
-      fill: Object.assign({}, fillColorList[0]),
-      stroke: Object.assign({}, strokeColorList[1]),
+      fill: fillColorList[0],
+      stroke: strokeColorList[1],
       weight: 0
     };
 
@@ -18,8 +18,8 @@ angular.module("ushirt")
       getShirtColor: () => shirtColor,
       getPrintStyle: () => style,
       setShirtColor: color => shirtColor = color,
-      setFillColor: color => style.fill = Object.assign(style.fill, color),
-      setStrokeColor: color => style.stroke = Object.assign(style.stroke, color),
+      setFillColor: color => style.fill = color,
+      setStrokeColor: color => style.stroke = color,
       setStrokeWeight: weight => style.weight = weight
     };
   });

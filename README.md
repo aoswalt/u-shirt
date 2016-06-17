@@ -27,8 +27,9 @@ Each view has its own role to fill.
     + [x] svg loading as json
     + [x] svg data parsing
     + [x] draw canvas shape
-    + [ ] layering
-    + [ ] layer ordering
+    + [x] layering
+    + [x] layer ordering
+    + [ ] layer thumb drawing
     + [ ] mouse shape selection
     + [ ] shape dragging
     + [ ] shape affine transforms
@@ -74,5 +75,4 @@ Each view has its own role to fill.
 - tagging/automatic attribute system for suggesting new designs
     + attributes for each piece that can be analyzed
     + table for attribute ids, style properties
-    + analyzer for invalid attribute properties 
-
+    + analyzer for invalid attribute properties

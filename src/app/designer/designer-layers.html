@@ -3,21 +3,13 @@
     <div class="icon"></div>
     <div class="icon"></div>
     <div class="icon"></div>
+    <div class="icon"></div>
   </div>
 
-  <div class="layer">
-    <div class="icon"></div>
-  </div>
-  <div class="layer">
-    <div class="icon"></div>
-  </div>
-  <div class="layer">
-    <div class="icon"></div>
-  </div>
-  <div class="layer">
-    <div class="icon"></div>
-  </div>
-  <div class="layer">
-    <div class="icon"></div>
+  <div class="layer"
+    ng-repeat="layer in layers.layerList"
+    ng-class="{selected: layer.selected}"
+    ng-click="layers.selectLayer(layer)">
+    <canvas class="thumb"></canvas>
   </div>
 </div>

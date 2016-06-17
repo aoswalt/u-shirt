@@ -20,7 +20,7 @@ angular.module("ushirt")
       restrict: "E",
       replace: true,
       template: `<canvas width="${width}px" height="${height}px"></canvas>`,
-      link: (scope, element, attr) => {
+      link: (scope, element) => {
         const canvas = element[0];
         // canvas.width = width;
         // canvas.height = height;

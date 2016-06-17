@@ -12,6 +12,12 @@ angular.module("ushirt")
       this.envelope = new Envelope(shape);
     }
 
+    const addLayer = shapeData => {
+      const shape = Art.parseSvg(shapeData);
+      list.push(new Layer(shape));
+      drawList();
+    };
+
     const selectLayer = layer => {
       if(layer.selected) {
         layer.selected = false;
@@ -23,15 +29,11 @@ angular.module("ushirt")
       }
     };
 
-    list.push(new Layer(null));
-    list.push(new Layer(null));
-    list.push(new Layer(null));
-    list.push(new Layer(null));
-
-    selectLayer(list[1]);
+    const drawList = () => list.forEach(l => Art.drawShape(l.shape));
 
     return {
       list,
+      addLayer,
       selectLayer
     };
   });

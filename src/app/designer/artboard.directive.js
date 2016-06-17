@@ -28,7 +28,7 @@ angular.module("ushirt")
         const scale = Math.min(canvas.width / clientRect.width, canvas.height / clientRect.height);
         const ctx = canvas.getContext("2d");
 
-        Art.setup(canvas, ctx);
+        Art.setContext(ctx);
 
         element.css({
           display: "block",

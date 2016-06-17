@@ -2,14 +2,9 @@
 /* eslint-disable no-magic-numbers, no-console */
 var Art = (function(art) {  // eslint-disable-line no-var
   const maxShapeSize = 400;
-  art.canvas = null;
   art.ctx = null;
 
-  art.setup = (canvas, ctx) => {
-    art.canvas = canvas;
-    art.ctx = ctx;
-  },
-
+  art.setContext = ctx => art.ctx = ctx;
 
   art.parseSvg = function(element) {
     const viewBox = element.viewBox.split(" ");
@@ -235,7 +230,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     }
 
     //NOTE(adam): clear the canvas after test drawing
-    art.ctx.clearRect(0, 0, art.canvas.width, art.canvas.height);
+    art.ctx.clearRect(0, 0, art.ctx.canvas.width, art.ctx.canvas.height);
 
     return paths;
   }
@@ -266,7 +261,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     Art.Path.prependCommand(path, art.ctx.beginPath, []);
     Art.Path.addCommand(path, art.ctx.closePath, []);
 
-    art.ctx.clearRect(0, 0, art.canvas.width, art.canvas.height);
+    art.ctx.clearRect(0, 0, art.ctx.canvas.width, art.ctx.canvas.height);
 
     //NOTE(adam): returning array to match commands from data
     return [path];

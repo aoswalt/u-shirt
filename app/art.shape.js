@@ -39,6 +39,10 @@ var Art = (function(art) {  // eslint-disable-line no-var
     }
   };
 
+  art.Shape.drawThumb = (shape, opts, tmat, ctx) => {
+
+  };
+
   art.Shape.addTransform = (shape, tmat) => {
     shape.transforms.push(tmat);
     art.Shape.calcFinalTransform(shape);

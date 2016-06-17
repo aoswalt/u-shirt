@@ -47,7 +47,7 @@ angular.module("ushirt")
     ];
 
     return {
-      getShirtColorList: () => JSON.parse(JSON.stringify(shirtColorList)),
-      getPrintColorList: () => JSON.parse(JSON.stringify(printColorList))
+      getShirtColorList: () => shirtColorList.map(c => Object.assign({}, c)),
+      getPrintColorList: () => printColorList.map(c => Object.assign({}, c))
     };
   });

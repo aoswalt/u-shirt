@@ -1,6 +1,6 @@
 angular.module("ushirt")
-  .directive("layersPanel", () => {
-    const layerList = [];
+  .factory("layersFactory", () => {
+    const list = [];
     let selectedLayer = null;
 
     function Envelope(shape) {
@@ -17,25 +17,21 @@ angular.module("ushirt")
         layer.selected = false;
         selectedLayer = null;
       } else {
-        layerList.forEach(l => l.selected = false);
+        list.forEach(l => l.selected = false);
         selectedLayer = layer;
         selectedLayer.selected = true;
       }
     };
 
-    layerList.push(new Layer(null));
-    layerList.push(new Layer(null));
-    layerList.push(new Layer(null));
-    layerList.push(new Layer(null));
+    list.push(new Layer(null));
+    list.push(new Layer(null));
+    list.push(new Layer(null));
+    list.push(new Layer(null));
 
-    selectLayer(layerList[1]);
+    selectLayer(list[1]);
 
     return {
-      restrict: "E",
-      replace: true,
-      templateUrl: "app/designer/designer-layers.html",
-      link: (scope) => {
-        scope.layers = { layerList, selectLayer };
-      }
+      list,
+      selectLayer
     };
   });

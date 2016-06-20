@@ -267,10 +267,5 @@ var Art = (function(art) {  // eslint-disable-line no-var
     return [path];
   }
 
-  art.drawShape = shape =>
-    Art.Shape.drawShape(shape,
-      {fillStyle:"black", strokeStyle:"green", strokeWeight: 10},
-      Matrix.idmat);
-
   return art;
 }(Art || {}));

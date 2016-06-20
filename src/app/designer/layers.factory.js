@@ -7,9 +7,10 @@ angular.module("ushirt")
       this.shape = shape;
     }
 
-    function Layer(shape) {
+    function Layer(shape, canvas) {
       this.shape = shape;
       this.envelope = new Envelope(shape);
+      this.canvas = null;
     }
 
     const addLayer = shapeData => {
@@ -53,7 +54,10 @@ angular.module("ushirt")
       drawList();
     };
 
-    const drawList = () => list.forEach(l => Art.drawShape(l.shape));
+    const drawList = () => list.forEach(l => {
+      Art.drawThumb(l.shape, l.canvas.getContext("2d"));
+      Art.drawShape(l.shape);
+    });
 
     return {
       list,

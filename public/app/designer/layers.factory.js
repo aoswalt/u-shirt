@@ -5,17 +5,14 @@ angular.module("ushirt")
 
     function Layer(shape, ctx) {
       this.shape = shape;
-      this.envelope = new Envelope(shape);
+      this.envelope = new Art.Envelope(shape);
       this.ctx = ctx;
-    }
-
-    function Envelope(shape) {
-      this.shape = shape;
     }
 
     const addLayer = shapeData => {
       const shape = Art.parseSvg(shapeData);
-      list.push(new Layer(shape, null));  //NOTE(adam): no ctx until directive
+      list.unshift(new Layer(shape, null));  //NOTE(adam): no ctx until directive
+      selectLayer(list[list.length - 1]);
       drawList();
     };
 
@@ -28,6 +25,7 @@ angular.module("ushirt")
         selectedLayer = layer;
         selectedLayer.selected = true;
       }
+      drawList();
     };
 
     const moveSelectedLayer = dir => {
@@ -54,9 +52,12 @@ angular.module("ushirt")
       drawList();
     };
 
-    const drawList = () => list.forEach(l => {
+    //NOTE(adam): reverse on copy to presever list but draw correct order
+    const drawList = () => list.slice().reverse().forEach(l => {
+      Art.clear();
       Art.drawThumb(l.shape, l.ctx);
       Art.drawShape(l.shape);
+      if(selectedLayer) { Art.Envelope.drawEnvelope(selectedLayer.envelope); }
     });
 
     return {

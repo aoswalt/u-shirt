@@ -26,7 +26,7 @@ Matrix.det = (m) => {
   }
 };
 
-Matrix.adj = m =>
+Matrix.adj = (m) =>
   [+Matrix.det([m[4], m[5], m[7], m[8]]),
    -Matrix.det([m[3], m[5], m[6], m[8]]),
    +Matrix.det([m[3], m[4], m[6], m[7]]),
@@ -37,7 +37,7 @@ Matrix.adj = m =>
    -Matrix.det([m[0], m[2], m[3], m[5]]),
    +Matrix.det([m[0], m[1], m[3], m[4]])];
 
-Matrix.transpose = m =>
+Matrix.transpose = (m) =>
   [m[0], m[3], m[6], m[1], m[4], m[7], m[2], m[5], m[8]];
 
 Matrix.multmm = (A, B) =>
@@ -49,3 +49,15 @@ Matrix.multmv = (m, v) =>
   [m[0]*v[0] + m[1]*v[1] + m[2]*v[2],
    m[3]*v[0] + m[4]*v[1] + m[5]*v[2],
    m[6]*v[0] + m[7]*v[1] + m[8]*v[2]];
+
+Matrix.makeBasisMap = (nodes) => {
+  const M = [nodes[0].x, nodes[1].x, nodes[2].x,
+            nodes[0].y, nodes[1].y, nodes[2].y,
+            1,          1,          1];
+
+  const Mi = Matrix.invert(M);
+  const coes = Matrix.multmv(Mi, [nodes[3].x, nodes[3].y, 1]);
+  return [coes[0] * M[0], coes[1] * M[1], coes[2] * M[2],
+          coes[0] * M[3], coes[1] * M[4], coes[2] * M[5],
+          coes[0],        coes[1],        coes[2]];
+};

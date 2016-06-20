@@ -15,7 +15,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
   };
 
 
-  art.drawShape = shape =>
+  art.drawShape = (shape) =>
     Art.Shape.drawShape(shape,
       {fill:"black", stroke:"green", weight: 10},
       Matrix.idmat);

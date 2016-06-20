@@ -27,6 +27,12 @@ var Art = (function(art) {  // eslint-disable-line no-var
       env,
       ctx);
 
+  art.shapeContainsPoint = (shape, pos) => {
+    //NOTE(adam): build shape with no fill or stroke
+    art.Shape.drawShape(shape, null, Matrix.idmat);
+    return art.ctx.isPointInPath(pos.x, pos.y);
+  };
+
 
   art.Shape.drawShape = (shape, opts, tmat) =>
     drawShapeTo(shape, opts, tmat, art.ctx);

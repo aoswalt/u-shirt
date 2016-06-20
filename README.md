@@ -31,7 +31,7 @@ Each view has its own role to fill.
     + [x] layer ordering
     + [x] layer thumb drawing
     + [x] mouse artboard shape selection
-    + [ ] shape dragging
+    + [x] shape dragging
     + [ ] shape affine transforms
     + [ ] rotation buttons
     + [ ] reset shape button

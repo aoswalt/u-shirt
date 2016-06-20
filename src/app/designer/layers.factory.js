@@ -16,6 +16,8 @@ angular.module("ushirt")
       drawList();
     };
 
+    const getSelectedLayer = () => selectedLayer;
+
     const selectLayer = layer => {
       if(layer.selected) {
         layer.selected = false;
@@ -66,7 +68,9 @@ angular.module("ushirt")
       list,
       addLayer,
       selectLayer,
+      getSelectedLayer,
       moveSelectedLayer,
-      deleteSelectedLayer
+      deleteSelectedLayer,
+      drawList
     };
   });

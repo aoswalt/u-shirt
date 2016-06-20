@@ -29,7 +29,7 @@ Each view has its own role to fill.
     + [x] draw canvas shape
     + [x] layering
     + [x] layer ordering
-    + [ ] layer thumb drawing
+    + [x] layer thumb drawing
     + [ ] mouse shape selection
     + [ ] shape dragging
     + [ ] shape affine transforms

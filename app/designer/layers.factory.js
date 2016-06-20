@@ -12,7 +12,7 @@ angular.module("ushirt")
     const addLayer = shapeData => {
       const shape = Art.parseSvg(shapeData);
       list.unshift(new Layer(shape, null));  //NOTE(adam): no ctx until directive
-      selectLayer(list[list.length - 1]);
+      selectLayer(list[0]);
       drawList();
     };
 
@@ -53,12 +53,14 @@ angular.module("ushirt")
     };
 
     //NOTE(adam): reverse on copy to presever list but draw correct order
-    const drawList = () => list.slice().reverse().forEach(l => {
+    const drawList = () => {
       Art.clear();
-      Art.drawThumb(l.shape, l.ctx);
-      Art.drawShape(l.shape);
-      if(selectedLayer) { Art.Envelope.drawEnvelope(selectedLayer.envelope); }
-    });
+      list.slice().reverse().forEach(l => {
+        Art.drawThumb(l.shape, l.envelope, l.ctx);
+        Art.drawShape(l.shape);
+        if(selectedLayer) { Art.Envelope.drawEnvelope(selectedLayer.envelope); }
+      });
+    };
 
     return {
       list,

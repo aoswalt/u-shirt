@@ -15,11 +15,6 @@ var Art = (function(art) {  // eslint-disable-line no-var
   };
 
 
-  art.drawShape = (shape) =>
-    Art.Shape.drawShape(shape,
-      {fill:"black", stroke:"green", weight: 10},
-      Matrix.idmat);
-
   art.drawThumb = (shape, env, ctx) =>
     Art.Shape.drawThumb(shape,
       {fill:"green", stroke:"orange", weight: 5},
@@ -27,9 +22,9 @@ var Art = (function(art) {  // eslint-disable-line no-var
       env,
       ctx);
 
-  art.shapeContainsPoint = (shape, pos) => {
+  art.shapeContainsPoint = (shape, tmat, pos) => {
     //NOTE(adam): build shape with no fill or stroke
-    art.Shape.drawShape(shape, null, Matrix.idmat);
+    art.Shape.drawShape(shape, null, tmat);
     return art.ctx.isPointInPath(pos.x, pos.y);
   };
 

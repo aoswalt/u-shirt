@@ -27,14 +27,13 @@ angular.module("ushirt")
         selectedLayer = layer;
         if(selectedLayer) { selectedLayer.selected = true; }
       }
-      $timeout();
       drawList();
     };
 
     const selectLayerAtPoint = (pos) => {
       let containingLayer = null;
       list.slice().reverse().forEach(l => {
-        if(Art.shapeContainsPoint(l.shape, pos)) {
+        if(Art.shapeContainsPoint(l.shape, l.envelope.tmat, pos)) {
           containingLayer = l;
           return;
         }
@@ -72,9 +71,10 @@ angular.module("ushirt")
       Art.clear();
       list.slice().reverse().forEach(l => {
         Art.drawThumb(l.shape, l.envelope, l.ctx);
-        Art.drawShape(l.shape);
+        Art.Shape.drawShape(l.shape, {fill:"green", stroke:"orange", weight: 5}, l.envelope.tmat);
         if(selectedLayer) { Art.Envelope.drawEnvelope(selectedLayer.envelope); }
       });
+      $timeout();
     };
 
     return {

@@ -31,7 +31,7 @@ angular.module("ushirt")
           draggingNodes = activeLayer.envelope.nodes.slice();
           return;
         }
-      } else if(Art.shapeContainsPoint(activeLayer.shape, mousePoint)) {
+      } else if(Art.shapeContainsPoint(activeLayer.shape, activeLayer.envelope.tmat, mousePoint)) {
         isDragging = true;
         draggingNodes = activeLayer.envelope.nodes.slice();
       } else {

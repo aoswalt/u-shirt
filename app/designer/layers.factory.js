@@ -3,19 +3,19 @@ angular.module("ushirt")
     let list = [];
     let selectedLayer = null;
 
+    function Layer(shape, ctx) {
+      this.shape = shape;
+      this.envelope = new Envelope(shape);
+      this.ctx = ctx;
+    }
+
     function Envelope(shape) {
       this.shape = shape;
     }
 
-    function Layer(shape, canvas) {
-      this.shape = shape;
-      this.envelope = new Envelope(shape);
-      this.canvas = null;
-    }
-
     const addLayer = shapeData => {
       const shape = Art.parseSvg(shapeData);
-      list.push(new Layer(shape));
+      list.push(new Layer(shape, null));  //NOTE(adam): no ctx until directive
       drawList();
     };
 
@@ -55,7 +55,7 @@ angular.module("ushirt")
     };
 
     const drawList = () => list.forEach(l => {
-      Art.drawThumb(l.shape, l.canvas.getContext("2d"));
+      Art.drawThumb(l.shape, l.ctx);
       Art.drawShape(l.shape);
     });
 

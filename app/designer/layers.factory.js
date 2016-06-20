@@ -40,6 +40,7 @@ angular.module("ushirt")
         }
       });
       selectLayer(containingLayer);
+      return selectedLayer;
     };
 
     const moveSelectedLayer = dir => {

@@ -22,13 +22,21 @@ angular.module("ushirt")
 
     const mousedown = (e) => {
       updateMousePoint(e);
+      let activeLayer = layersFactory.getSelectedLayer();
 
-      layersFactory.selectLayerAtPoint(mousePoint);
-      // if(!layersFactory.getSelectedLayer()) {
-      // }
-      // isDragging = true;
-      // draggingNodes = [layersFactory.getSelectedLayer().envelope.nodes[1],
-                      //  layersFactory.getSelectedLayer().envelope.nodes[2]];
+      if(!activeLayer) {
+        activeLayer = layersFactory.selectLayerAtPoint(mousePoint);
+        if(activeLayer) {
+          isDragging = true;
+          draggingNodes = activeLayer.envelope.nodes.slice();
+          return;
+        }
+      } else if(Art.shapeContainsPoint(activeLayer.shape, mousePoint)) {
+        isDragging = true;
+        draggingNodes = activeLayer.envelope.nodes.slice();
+      } else {
+        layersFactory.selectLayerAtPoint(mousePoint);
+      }
     };
 
     const mousefree = (e) => {

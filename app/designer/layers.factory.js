@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .factory("layersFactory", () => {
+  .factory("layersFactory", ($timeout) => {
     let list = [];
     let selectedLayer = null;
 
@@ -19,15 +19,27 @@ angular.module("ushirt")
     const getSelectedLayer = () => selectedLayer;
 
     const selectLayer = layer => {
-      if(layer.selected) {
+      if(layer && layer.selected) {
         layer.selected = false;
         selectedLayer = null;
       } else {
         list.forEach(l => l.selected = false);
         selectedLayer = layer;
-        selectedLayer.selected = true;
+        if(selectedLayer) { selectedLayer.selected = true; }
       }
+      $timeout();
       drawList();
+    };
+
+    const selectLayerAtPoint = (pos) => {
+      let containingLayer = null;
+      list.slice().reverse().forEach(l => {
+        if(Art.shapeContainsPoint(l.shape, pos)) {
+          containingLayer = l;
+          return;
+        }
+      });
+      selectLayer(containingLayer);
     };
 
     const moveSelectedLayer = dir => {
@@ -68,6 +80,7 @@ angular.module("ushirt")
       list,
       addLayer,
       selectLayer,
+      selectLayerAtPoint,
       getSelectedLayer,
       moveSelectedLayer,
       deleteSelectedLayer,

@@ -4,7 +4,9 @@ var Art = (function(art) {  // eslint-disable-line no-var
   const maxShapeSize = 400;
   art.ctx = null;
 
-  art.setContext = ctx => art.ctx = ctx;
+  art.setContext = (ctx) => art.ctx = ctx;
+  art.clear = () =>
+    art.ctx.clearRect(0, 0, art.ctx.canvas.width, art.ctx.canvas.height);
 
   art.parseSvg = function(element) {
     const viewBox = element.viewBox.split(" ");

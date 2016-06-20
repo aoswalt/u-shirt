@@ -28,7 +28,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
   };
 
   art.Envelope.calcTmat = (env) => {
-    env.tmat = Matrix.multmm(Matrix.makeBasisMap(env.nodes), env.Ainvers);
+    env.tmat = Matrix.multmm(Matrix.makeBasisMap(env.nodes), env.Ainverse);
 
     //NOTE(adam): update properties from new node positions
     env.pos.x = env.nodes[0].x;
@@ -38,8 +38,8 @@ var Art = (function(art) {  // eslint-disable-line no-var
     env.nodes.forEach(n => {
       env.pos.x = Math.min(n.x, env.pos.x);
       env.pos.y = Math.min(n.y, env.pos.y);
-      env.extent.x = Math.min(n.x, env.extent.x);
-      env.extent.y = Math.min(n.y, env.extent.y);
+      env.extent.x = Math.max(n.x, env.extent.x);
+      env.extent.y = Math.max(n.y, env.extent.y);
     });
     env.width = env.extent.x - env.pos.x;
     env.height = env.extent.y - env.pos.y;
@@ -68,6 +68,13 @@ var Art = (function(art) {  // eslint-disable-line no-var
                      nodeSize, nodeSize);
   };
   /* eslint-enable no-magic-numbers */
+
+  art.Envelope.moveNode = ((env, n, offset) => {
+    //NOTE(adam): must work on node directly
+    n.x += offset.x;
+    n.y += offset.y;
+    art.Envelope.calcTmat(env);
+  });
 
   return art;
 }(Art || {}));

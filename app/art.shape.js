@@ -35,9 +35,9 @@ var Art = (function(art) {  // eslint-disable-line no-var
     if(!ctx) return;
 
     const thumbCanvas = ctx.canvas;
-    const shapeScale = 0.9;   // NOTE: leave room around for spacing
+    const shapeScale = 0.9;   //NOTE(adam): leave room around for spacing
     const canvasSize = thumbCanvas.width * shapeScale;
-    const offset = thumbCanvas.width * (1 - shapeScale) / 2;  // NOTE: mid
+    const offset = thumbCanvas.width * (1 - shapeScale) / 2;  //NOTE(adam): mid
     const ws = canvasSize / env.width;
     const hs = canvasSize / env.height;
     const scale = Math.min(ws, hs);

@@ -20,10 +20,11 @@ var Art = (function(art) {  // eslint-disable-line no-var
     path.commands.reverse().unshift(first);
   };
 
-  art.Path.draw = path => path.commands.forEach(cmd => art.Command.execute(cmd));
+  art.Path.draw = (path, ctx) =>
+    path.commands.forEach(cmd => art.Command.execute(cmd, ctx));
 
-  art.Path.drawLastCommand = path =>
-  art.Command.execute(path.commands[path.commands.length - 1]);
+  art.Path.drawLastCommand = (path) =>
+  art.Command.execute(path.commands[path.commands.length - 1], art.ctx);
 
   art.Path.transform = (path, tmat) =>
   path.commands.map(cmd => art.Command.transform(cmd, tmat));

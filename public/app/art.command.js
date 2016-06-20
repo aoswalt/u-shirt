@@ -7,14 +7,14 @@ var Art = (function(art) {  // eslint-disable-line no-var
     this.tArgs = args.slice();
   };
 
-  art.Command.execute = (cmd) => {
+  art.Command.execute = (cmd, ctx) => {
     const applyArgs = [];
     cmd.tArgs.forEach(a => applyArgs.push(a.x, a.y));
-    cmd.name.apply(art.ctx, applyArgs);
+    cmd.name.apply(ctx, applyArgs);
   };
 
   art.Command.transform = (cmd, tmat) =>
-  cmd.tArgs = cmd.args.map(a => Vec.transform(a, tmat)).slice();
+    cmd.tArgs = cmd.args.map(a => Vec.transform(a, tmat)).slice();
 
   return art;
 }(Art || {}));

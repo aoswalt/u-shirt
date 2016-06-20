@@ -10,6 +10,6 @@
     ng-repeat="layer in layers.list"
     ng-class="{selected: layer.selected}"
     ng-click="layers.selectLayer(layer)">
-    <canvas class="thumb"></canvas>
+    <layer-tumbnail layer="layer"></layer-tumbnail>
   </div>
 </div>

@@ -17,13 +17,14 @@ var Art = (function(art) {  // eslint-disable-line no-var
 
   art.drawShape = shape =>
     Art.Shape.drawShape(shape,
-      {fillStyle:"black", strokeStyle:"green", strokeWeight: 10}, Matrix.idmat);
+      {fill:"black", stroke:"green", weight: 10},
+      Matrix.idmat);
 
   art.drawThumb = (shape, ctx) =>
     Art.Shape.drawThumb(shape,
-      {fillStyle:"black", strokeStyle:"green", strokeWeight: 10},
+      {fill:"green", stroke:"orange", weight: 5},
       Matrix.idmat,
-      {width:100, height:100, pos:{x:25,y:25}},
+      {width:400, height:400, pos:{x:0,y:0}, tmat:Matrix.idmat.slice()},
       ctx);
 
 
@@ -31,6 +32,8 @@ var Art = (function(art) {  // eslint-disable-line no-var
     drawShapeTo(shape, opts, tmat, art.ctx);
 
   art.Shape.drawThumb = (shape, opts, tmat, env, ctx) => {
+    if(!ctx) return;
+
     const thumbCanvas = ctx.canvas;
     const shapeScale = 0.9;   // NOTE: leave room around for spacing
     const canvasSize = thumbCanvas.width * shapeScale;
@@ -46,7 +49,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     ctx.translate(-env.pos.x * scale + wdiff + offset,
                   -env.pos.y * scale + hdiff + offset);
     ctx.scale(scale, scale);
-    drawShapeTo(shape, opts, tmat, ctx);
+    drawShapeTo(shape, opts, env.tmat, ctx);
     ctx.restore();
   };
 
@@ -58,18 +61,18 @@ var Art = (function(art) {  // eslint-disable-line no-var
 
     shape.paths.forEach(function(path) {
       art.Path.transform(path, t);
-      art.Path.draw(path);
+      art.Path.draw(path, ctx);
     });
 
     if(opts) {
-      ctx.fillStyle = opts.fillStyle;
-      if(opts.fillStyle !== "none") {
+      ctx.fillStyle = opts.fill;
+      if(opts.fill !== "none") {
         ctx.fill();
       }
 
-      ctx.strokeStyle = opts.strokeStyle;
-      ctx.lineWidth = opts.strokeWeight;
-      if(opts.strokeStyle !== "none" && opts.strokeWeight !== 0) {
+      ctx.strokeStyle = opts.stroke;
+      ctx.lineWidth = opts.weight;
+      if(opts.stroke !== "none" && opts.weight !== 0) {
         ctx.stroke();
       }
     }

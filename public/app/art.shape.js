@@ -20,11 +20,11 @@ var Art = (function(art) {  // eslint-disable-line no-var
       {fill:"black", stroke:"green", weight: 10},
       Matrix.idmat);
 
-  art.drawThumb = (shape, ctx) =>
+  art.drawThumb = (shape, env, ctx) =>
     Art.Shape.drawThumb(shape,
       {fill:"green", stroke:"orange", weight: 5},
       Matrix.idmat,
-      {width:400, height:400, pos:{x:0,y:0}, tmat:Matrix.idmat.slice()},
+      env,
       ctx);
 
 

@@ -40,6 +40,16 @@
     <h3>
       Stroke
       <span class="swatch" title="None"></span>
+      <select class="stroke-weight"
+        ng-model="design.style.weight"
+        ng-change="design.setStrokeWeight()">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
     </h3>
     <div class="swatch"
       ng-repeat="color in design.strokeColors"

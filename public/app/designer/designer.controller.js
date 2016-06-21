@@ -6,7 +6,6 @@ angular.module("ushirt")
     design.shirtColors = settingsFactory.shirtColorList;
     design.shirtColor = design.shirtColors[0];
 
-
     design.setShirtColor = color => {
       design.shirtColor = color;
       settingsFactory.setShirtColor(color);
@@ -14,6 +13,7 @@ angular.module("ushirt")
 
     design.fillColors = settingsFactory.fillColorList;
     design.strokeColors = settingsFactory.strokeColorList;
+
     design.setFillColor = (color) => {
       settingsFactory.setFillColor(color);
       layersFactory.updateSelectedOpts({fill: color});
@@ -22,7 +22,13 @@ angular.module("ushirt")
       settingsFactory.setStrokeColor(color);
       layersFactory.updateSelectedOpts({stroke: color});
     };
-    design.setStrokeWeight = settingsFactory.setStrokeWeight;
+    //NOTE(adam): using object reference to handle stroke weight updating
+    //TODO(adam): initial setting for weight to populate select
+    design.style = settingsFactory.getStyle();
+    design.setStrokeWeight = () => {
+      // settingsFactory.setStrokeWeight(design.strokeWeight);
+      layersFactory.updateSelectedOpts({weight: design.style.weight});
+    };
 
     design.addShape = layersFactory.addLayer;
   });

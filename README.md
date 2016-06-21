@@ -34,11 +34,13 @@ Each view has its own role to fill.
     + [x] shape dragging
     + [x] shape affine transforms
     + [x] shape non-affine transforms
-    + [ ] layer coloring
+    + [x] layer coloring
+    + [x] stroke weight
     + [ ] rotation buttons
     + [ ] reset shape button
 - Polish
     + [ ] styling
+    + [ ] icons
     + [ ] style animations
 - Profile Page Design
     + [ ] overall layout

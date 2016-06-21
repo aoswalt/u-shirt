@@ -3,6 +3,8 @@
 
 //NOTE(adam): shape operations
 var Art = (function(art) {  // eslint-disable-line no-var
+  const strokeWeightMod = 10;
+
   art.Shape = function(width, height, paths) {
     this.initWidth = width;
     this.initHeight = height;
@@ -52,14 +54,14 @@ var Art = (function(art) {  // eslint-disable-line no-var
     });
 
     if(opts) {
-      ctx.fillStyle = opts.fill;
       if(opts.fill !== "none") {
+        ctx.fillStyle = opts.fill;
         ctx.fill();
       }
 
-      ctx.strokeStyle = opts.stroke;
-      ctx.lineWidth = opts.weight;
-      if(opts.stroke !== "none" && opts.weight !== 0) {
+      if(opts.stroke !== "none" && opts.weight > 0) {
+        ctx.strokeStyle = opts.stroke;
+        ctx.lineWidth = opts.weight * strokeWeightMod;
         ctx.stroke();
       }
     }

@@ -27,6 +27,7 @@ angular.module("ushirt")
     setStrokeColor(strokeColorList[1]);
 
     return {
+      getStyle: () => style,
       shirtColorList,
       fillColorList,
       strokeColorList,
@@ -35,7 +36,6 @@ angular.module("ushirt")
       setShirtColor: (color) => shirtColor = color,
       setFillColor,
       setStrokeColor,
-      setStrokeWeight: (weight) => style.weight = weight,
       getAsOpts: () => ({
         fill: style.fill.rgb,
         stroke: style.stroke.rgb,

@@ -15,24 +15,10 @@ var Art = (function(art) {  // eslint-disable-line no-var
   };
 
 
-  art.drawThumb = (shape, env, ctx) =>
-    Art.Shape.drawThumb(shape,
-      {fill:"green", stroke:"orange", weight: 5},
-      Matrix.idmat,
-      env,
-      ctx);
-
-  art.shapeContainsPoint = (shape, tmat, pos) => {
-    //NOTE(adam): build shape with no fill or stroke
-    art.Shape.drawShape(shape, null, tmat);
-    return art.ctx.isPointInPath(pos.x, pos.y);
-  };
-
-
   art.Shape.drawShape = (shape, opts, tmat) =>
     drawShapeTo(shape, opts, tmat, art.ctx);
 
-  art.Shape.drawThumb = (shape, opts, tmat, env, ctx) => {
+  art.Shape.drawThumb = (shape, opts, env, ctx) => {
     if(!ctx) return;
 
     const thumbCanvas = ctx.canvas;
@@ -93,6 +79,12 @@ var Art = (function(art) {  // eslint-disable-line no-var
     let tmat = Matrix.idmat.slice();
     shape.transforms.forEach(trans => tmat = Matrix.multmm(tmat, trans));
     shape.finalTransform = tmat;
+  };
+
+  art.Shape.shapeContainsPoint = (shape, tmat, pos) => {
+    //NOTE(adam): build shape with no fill or stroke
+    art.Shape.drawShape(shape, null, tmat);
+    return art.ctx.isPointInPath(pos.x, pos.y);
   };
 
   return art;

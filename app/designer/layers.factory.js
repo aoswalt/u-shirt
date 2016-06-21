@@ -1,17 +1,20 @@
 angular.module("ushirt")
-  .factory("layersFactory", ($timeout) => {
+  .factory("layersFactory", (settingsFactory, $timeout) => {
     let list = [];
     let selectedLayer = null;
 
-    function Layer(shape, ctx) {
+    function Layer(shape, opts, ctx) {
       this.shape = shape;
+      this.opts = opts;
       this.envelope = new Art.Envelope(shape);
       this.ctx = ctx;
     }
 
     const addLayer = shapeData => {
       const shape = Art.parseSvg(shapeData);
-      list.unshift(new Layer(shape, null));  //NOTE(adam): no ctx until directive
+      list.unshift(new Layer(shape,
+                             settingsFactory.getAsOpts(),
+                             null));  //NOTE(adam): no ctx until directive
       selectLayer(list[0]);
       drawList();
     };
@@ -25,7 +28,10 @@ angular.module("ushirt")
       } else {
         list.forEach(l => l.selected = false);
         selectedLayer = layer;
-        if(selectedLayer) { selectedLayer.selected = true; }
+        if(selectedLayer) {
+          selectedLayer.selected = true;
+          settingsFactory.setFromOpts(selectedLayer.opts);
+        }
       }
       drawList();
     };
@@ -33,7 +39,7 @@ angular.module("ushirt")
     const selectLayerAtPoint = (pos) => {
       let containingLayer = null;
       list.slice().reverse().forEach(l => {
-        if(Art.shapeContainsPoint(l.shape, l.envelope.tmat, pos)) {
+        if(Art.Shape.shapeContainsPoint(l.shape, l.envelope.tmat, pos)) {
           containingLayer = l;
           return;
         }
@@ -66,12 +72,21 @@ angular.module("ushirt")
       drawList();
     };
 
+    const updateSelectedOpts = (settings) => {
+      if(selectedLayer) {
+        if(settings.fill) { selectedLayer.opts.fill = settings.fill.rgb; }
+        if(settings.stroke) { selectedLayer.opts.stroke = settings.stroke.rgb; }
+        if(settings.weight) { selectedLayer.opts.weight = settings.weight; }
+      }
+      drawList();
+    };
+
     //NOTE(adam): reverse on copy to presever list but draw correct order
     const drawList = () => {
       Art.clear();
       list.slice().reverse().forEach(l => {
-        Art.drawThumb(l.shape, l.envelope, l.ctx);
-        Art.Shape.drawShape(l.shape, {fill:"green", stroke:"orange", weight: 5}, l.envelope.tmat);
+        Art.Shape.drawThumb(l.shape, l.opts, l.envelope, l.ctx);
+        Art.Shape.drawShape(l.shape, l.opts, l.envelope.tmat);
         if(selectedLayer) { Art.Envelope.drawEnvelope(selectedLayer.envelope); }
       });
       $timeout();
@@ -85,6 +100,7 @@ angular.module("ushirt")
       getSelectedLayer,
       moveSelectedLayer,
       deleteSelectedLayer,
+      updateSelectedOpts,
       drawList
     };
   });

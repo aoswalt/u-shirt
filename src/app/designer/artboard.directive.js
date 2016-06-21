@@ -73,7 +73,7 @@ angular.module("ushirt")
           /* eslint-enable no-magic-numbers */
 
           //NOTE(adam): point insdie shape
-        } else if(Art.shapeContainsPoint(activeLayer.shape, activeLayer.envelope.tmat, mousePoint)) {
+        } else if(Art.Shape.shapeContainsPoint(activeLayer.shape, activeLayer.envelope.tmat, mousePoint)) {
           isDragging = true;
           draggingNodes = activeLayer.envelope.nodes.slice();
         } else {

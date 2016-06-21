@@ -6,10 +6,25 @@ angular.module("ushirt")
 
     let shirtColor = shirtColorList[0];
     const style = {
-      fill: fillColorList[0],
-      stroke: strokeColorList[1],
+      fill: null,
+      stroke: null,
       weight: 0
     };
+
+    const setFillColor = (color) => {
+      style.fill = color;
+      fillColorList.forEach(c => c.selected = false);
+      color.selected = true;
+    };
+
+    const setStrokeColor = (color) => {
+      style.stroke = color;
+      strokeColorList.forEach(c => c.selected = false);
+      color.selected = true;
+    };
+
+    setFillColor(fillColorList[0]);
+    setStrokeColor(strokeColorList[1]);
 
     return {
       shirtColorList,
@@ -17,9 +32,19 @@ angular.module("ushirt")
       strokeColorList,
       getShirtColor: () => shirtColor,
       getPrintStyle: () => style,
-      setShirtColor: color => shirtColor = color,
-      setFillColor: color => style.fill = color,
-      setStrokeColor: color => style.stroke = color,
-      setStrokeWeight: weight => style.weight = weight
+      setShirtColor: (color) => shirtColor = color,
+      setFillColor,
+      setStrokeColor,
+      setStrokeWeight: (weight) => style.weight = weight,
+      getAsOpts: () => ({
+        fill: style.fill.rgb,
+        stroke: style.stroke.rgb,
+        weight: style.weight
+      }),
+      setFromOpts: (opts) => {
+        setFillColor(fillColorList.filter(c => c.rgb === opts.fill)[0]);
+        setStrokeColor(strokeColorList.filter(c => c.rgb === opts.stroke)[0]);
+        style.weight = opts.weight;
+      }
     };
   });

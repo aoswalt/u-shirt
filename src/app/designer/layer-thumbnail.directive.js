@@ -10,7 +10,10 @@ angular.module("ushirt")
         `<canvas class="thumb" width="${size}px" height="${size}px"></canvas>`,
       link: (scope, element) => {
         scope.layer.ctx = element[0].getContext("2d");
-        Art.drawThumb(scope.layer.shape, scope.layer.envelope, scope.layer.ctx);
+        Art.Shape.drawThumb(scope.layer.shape,
+                            scope.layer.opts,
+                            scope.layer.envelope,
+                            scope.layer.ctx);
       }
     };
   });

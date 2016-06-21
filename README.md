@@ -32,7 +32,9 @@ Each view has its own role to fill.
     + [x] layer thumb drawing
     + [x] mouse artboard shape selection
     + [x] shape dragging
-    + [ ] shape affine transforms
+    + [x] shape affine transforms
+    + [x] shape non-affine transforms
+    + [ ] layer coloring
     + [ ] rotation buttons
     + [ ] reset shape button
 - Polish
@@ -51,7 +53,6 @@ Each view has its own role to fill.
     + [ ] browse designs
     + [ ] designs per user
 - Intermediate Logic
-    + [ ] shape non-affine transforms
     + [ ] temporary vs permanent saving
     + [ ] fork designs
 - History Page Design

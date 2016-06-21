@@ -11,7 +11,7 @@ angular.module("ushirt")
     let prevPoint = new Vec(0, 0);
     let isDragging = false;
     let draggingNodes = [];
-    const selectionArea = 30;
+    const selectionArea = 50;
 
 
     const updateMousePoint = (e) => {
@@ -31,11 +31,54 @@ angular.module("ushirt")
           draggingNodes = activeLayer.envelope.nodes.slice();
           return;
         }
-      } else if(Art.shapeContainsPoint(activeLayer.shape, activeLayer.envelope.tmat, mousePoint)) {
-        isDragging = true;
-        draggingNodes = activeLayer.envelope.nodes.slice();
       } else {
-        layersFactory.selectLayerAtPoint(mousePoint);
+        const env = activeLayer.envelope;
+
+        /* eslint-disable no-magic-numbers */
+        //NOTE(adam): node selection
+        if(Vec.distance(mousePoint, env.nodes[0]) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[0]];
+          return;
+        } else if(Vec.distance(mousePoint, env.nodes[1]) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[1]];
+          return;
+        } else if(Vec.distance(mousePoint, env.nodes[2]) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[2]];
+          return;
+        } else if(Vec.distance(mousePoint, env.nodes[3]) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[3]];
+          return;
+
+          //NOTE(adam): line selection
+        } else if(Vec.distanceToLine(env.nodes[0], env.nodes[1], mousePoint) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[0], env.nodes[1]];
+          return;
+        } else if(Vec.distanceToLine(env.nodes[1], env.nodes[2], mousePoint) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[1], env.nodes[2]];
+          return;
+        } else if(Vec.distanceToLine(env.nodes[2], env.nodes[3], mousePoint) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[2], env.nodes[3]];
+          return;
+        } else if(Vec.distanceToLine(env.nodes[3], env.nodes[0], mousePoint) <= selectionArea) {
+          isDragging = true;
+          draggingNodes = [env.nodes[3], env.nodes[0]];
+          return;
+          /* eslint-enable no-magic-numbers */
+
+          //NOTE(adam): point insdie shape
+        } else if(Art.shapeContainsPoint(activeLayer.shape, activeLayer.envelope.tmat, mousePoint)) {
+          isDragging = true;
+          draggingNodes = activeLayer.envelope.nodes.slice();
+        } else {
+          layersFactory.selectLayerAtPoint(mousePoint);
+        }
       }
     };
 

@@ -20,3 +20,8 @@ Vec.transform = (v, tmat) => {
     Math.round(map[1] / map[2])
   );
 };
+Vec.distanceToLine = (p1, p2, v) => {
+  const dx = p2.x - p1.x;
+  const dy = p2.y - p1.y;
+  return Math.abs(dy * v.x - dx * v.y - p1.x * p2.y + p2.x * p1.y) / Math.sqrt(dx * dx + dy * dy);
+};

@@ -36,7 +36,7 @@ Each view has its own role to fill.
     + [x] shape non-affine transforms
     + [x] layer coloring
     + [x] stroke weight
-    + [ ] rotation buttons
+    + [x] rotation buttons
     + [ ] reset shape button
 - Polish
     + [ ] styling

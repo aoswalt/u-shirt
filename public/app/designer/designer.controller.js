@@ -31,4 +31,8 @@ angular.module("ushirt")
     };
 
     design.addShape = layersFactory.addLayer;
+
+    const rotDeg = 15;
+    design.rotateCW = () => layersFactory.rotateSelectedLayerEnvelope(rotDeg);
+    design.rotateCCW = () => layersFactory.rotateSelectedLayerEnvelope(-rotDeg);
   });

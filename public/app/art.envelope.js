@@ -69,12 +69,25 @@ var Art = (function(art) {  // eslint-disable-line no-var
   };
   /* eslint-enable no-magic-numbers */
 
-  art.Envelope.moveNode = ((env, n, offset) => {
+  art.Envelope.moveNode = (env, n, offset) => {
     //NOTE(adam): must work on node directly
     n.x += offset.x;
     n.y += offset.y;
     art.Envelope.calcTmat(env);
-  });
+  };
+
+  /* eslint-disable no-magic-numbers */
+  art.Envelope.rotate = (env, deg) => {
+    const mid = Vec.add(env.pos, Vec.scale(Vec.subtract(env.extent, env.pos), 0.5));
+    const rad = deg * 3.14159 / 180;
+    env.nodes.forEach(n => {
+      const fromCenter = Vec.subtract(n, mid);
+      n.x = mid.x + fromCenter.x * Math.cos(rad) - fromCenter.y * Math.sin(rad);
+      n.y = mid.y + fromCenter.x * Math.sin(rad) + fromCenter.y * Math.cos(rad);
+    });
+    art.Envelope.calcTmat(env);
+  };
+  /* eslint-enable no-magic-numbers */
 
   return art;
 }(Art || {}));

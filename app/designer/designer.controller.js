@@ -35,4 +35,6 @@ angular.module("ushirt")
     const rotDeg = 15;
     design.rotateCW = () => layersFactory.rotateSelectedLayerEnvelope(rotDeg);
     design.rotateCCW = () => layersFactory.rotateSelectedLayerEnvelope(-rotDeg);
+
+    design.resetTransform = layersFactory.resetSelectedLayer;
   });

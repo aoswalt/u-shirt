@@ -37,7 +37,7 @@ Each view has its own role to fill.
     + [x] layer coloring
     + [x] stroke weight
     + [x] rotation buttons
-    + [ ] reset shape button
+    + [x] reset shape button
 - Polish
     + [ ] styling
     + [ ] icons

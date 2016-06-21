@@ -88,6 +88,13 @@ angular.module("ushirt")
       }
     };
 
+    const resetSelectedLayer = () => {
+      if(selectedLayer) {
+        Art.Envelope.reset(selectedLayer.envelope);
+        drawList();
+      }
+    };
+
     //NOTE(adam): reverse on copy to presever list but draw correct order
     const drawList = () => {
       Art.clear();
@@ -109,6 +116,7 @@ angular.module("ushirt")
       deleteSelectedLayer,
       updateSelectedOpts,
       rotateSelectedLayerEnvelope,
+      resetSelectedLayer,
       drawList
     };
   });

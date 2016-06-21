@@ -87,6 +87,16 @@ var Art = (function(art) {  // eslint-disable-line no-var
     });
     art.Envelope.calcTmat(env);
   };
+
+  art.Envelope.reset = (env) => {
+    env.nodes = [
+      new Vec(env.startNodes[0].x, env.startNodes[0].y),
+      new Vec(env.startNodes[1].x, env.startNodes[1].y),
+      new Vec(env.startNodes[2].x, env.startNodes[2].y),
+      new Vec(env.startNodes[3].x, env.startNodes[3].y)
+    ];
+    art.Envelope.calcTmat(env);
+  };
   /* eslint-enable no-magic-numbers */
 
   return art;

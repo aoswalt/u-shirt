@@ -2,34 +2,21 @@ body {
   background: navy;
   /*overflow: hidden;*/ }
 
-nav {
-  background: tomato; }
-
-.navbar {
-  border: 0;
-  height: 5vh;
-  margin-bottom: 0; }
-
 /* TODO(adam): find fix for 100vh */
 .content {
   border: 0;
   height: 94vh; }
-
-.content .row,
-.content .row > div {
-  height: 100%; }
-
-.content div[ng-include] {
-  height: 95%; }
+  .content .row,
+  .content .row > div {
+    height: 100%; }
+  .content div[ng-include] {
+    height: 95%; }
 
 .tools {
   background: teal; }
 
 .design {
   background: orange; }
-
-.layers {
-  background: forestgreen; }
 
 .color-area {
   padding: .75rem; }
@@ -53,23 +40,23 @@ nav {
 svg {
   overflow: visible !important; }
 
-.layers .panel {
-  height: 100%; }
-
-.layers .controls .icon {
-  height: 1.75rem;
-  width: 1.75rem;
-  margin: 0; }
+.layers {
+  background: forestgreen; }
+  .layers .panel {
+    height: 100%; }
+  .layers .controls .icon {
+    height: 1.75rem;
+    margin: 0;
+    width: 1.75rem; }
 
 .shirt-color-section {
   font-size: 2.25rem; }
 
 .dropdown-menu > li {
   font-size: 1.75rem; }
-
-.dropdown-menu > li:hover {
-  background-color: lightgrey;
-  cursor: pointer; }
+  .dropdown-menu > li:hover {
+    background-color: lightgrey;
+    cursor: pointer; }
 
 .shirt-color .swatch {
   height: 1.75rem;
@@ -80,16 +67,15 @@ div[ng-click] {
 
 .caret {
   border-width: 7px; }
-
-.caret.up {
-  border-bottom: 7px solid;
-  border-top: 0; }
+  .caret.up {
+    border-bottom: 7px solid;
+    border-top: 0; }
 
 canvas {
   background: white;
   border: 1px solid black;
-  margin-top: 2rem;
-  width: 95%; }
+  height: 90%;
+  margin-top: 2rem; }
 
 .layer {
   border: 1px solid black;
@@ -99,3 +85,16 @@ canvas {
 .selected {
   background: grey;
   border: 2px solid blue; }
+
+.navbar {
+  background: #48a5af;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0; }
+  .navbar .navbar-brand,
+  .navbar a {
+    color: #2f323c !important;
+    font-size: 1.75rem; }
+  .navbar .navbar-brand {
+    font-size: 2.5rem;
+    font-weight: bold; }

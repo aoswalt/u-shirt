@@ -3,30 +3,22 @@ body {
   /*overflow: hidden;*/
 }
 
-nav {
-  background: $navbg;
-}
-
-.navbar {
-  border: 0;
-  height: 5vh;
-  margin-bottom: 0;
-}
 
 /* TODO(adam): find fix for 100vh */
 .content {
   border: 0;
   height: 94vh;
+
+  .row,
+  .row > div {
+    height: 100%;
+  }
+
+  div[ng-include] {
+    height: 95%;
+  }
 }
 
-.content .row,
-.content .row > div {
-  height: 100%;
-}
-
-.content div[ng-include] {
-  height: 95%;
-}
 
 .tools {
   background: teal;
@@ -34,10 +26,6 @@ nav {
 
 .design {
   background: orange;
-}
-
-.layers {
-  background: forestgreen;
 }
 
 
@@ -58,24 +46,33 @@ nav {
   width: 3.25rem;
 }
 
-.shape-area .icon {
-  height: 4rem;
-  width: 4rem;
+.shape-area {
+  .icon {
+    height: 4rem;
+    width: 4rem;
+  }
 }
 
 svg {
   overflow: visible !important;
 }
 
-.layers .panel {
-  height: 100%;
+.layers {
+  background: forestgreen;
+
+  .panel {
+    height: 100%;
+  }
+
+  .controls {
+    .icon {
+      height: 1.75rem;
+      margin: 0;
+      width: 1.75rem;
+    }
+  }
 }
 
-.layers .controls .icon {
-  height: 1.75rem;
-  width: 1.75rem;
-  margin: 0;
-}
 
 .shirt-color-section {
   font-size: 2.25rem;
@@ -83,16 +80,18 @@ svg {
 
 .dropdown-menu > li {
   font-size: 1.75rem;
+
+  &:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
 }
 
-.dropdown-menu > li:hover {
-  background-color: lightgrey;
-  cursor: pointer;
-}
-
-.shirt-color .swatch {
-  height: 1.75rem;
-  width: 1.75rem;
+.shirt-color {
+  .swatch {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
 }
 
 div[ng-click] {
@@ -101,18 +100,19 @@ div[ng-click] {
 
 .caret {
   border-width: 7px;
-}
 
-.caret.up {
-  border-bottom: 7px solid;
-  border-top: 0;
+  &.up {
+    border-bottom: 7px solid;
+    border-top: 0;
+  }
 }
 
 canvas {
   background: white;
   border: 1px solid black;
+  height: 90%;
   margin-top: 2rem;
-  width: 95%;
+  // width: 95%;
 }
 
 .layer {

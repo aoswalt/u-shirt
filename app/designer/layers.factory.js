@@ -77,8 +77,15 @@ angular.module("ushirt")
         if(settings.fill) { selectedLayer.opts.fill = settings.fill.rgb; }
         if(settings.stroke) { selectedLayer.opts.stroke = settings.stroke.rgb; }
         if(settings.weight) { selectedLayer.opts.weight = settings.weight; }
+        drawList();
       }
-      drawList();
+    };
+
+    const rotateSelectedLayerEnvelope = (deg) => {
+      if(selectedLayer) {
+        Art.Envelope.rotate(selectedLayer.envelope, deg);
+        drawList();
+      }
     };
 
     //NOTE(adam): reverse on copy to presever list but draw correct order
@@ -101,6 +108,7 @@ angular.module("ushirt")
       moveSelectedLayer,
       deleteSelectedLayer,
       updateSelectedOpts,
+      rotateSelectedLayerEnvelope,
       drawList
     };
   });

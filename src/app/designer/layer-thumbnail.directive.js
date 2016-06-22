@@ -1,6 +1,6 @@
 angular.module("ushirt")
   .directive("layerTumbnail", () => {
-    const size = 50;
+    const size = 100;
 
     return {
       restrict: "E",

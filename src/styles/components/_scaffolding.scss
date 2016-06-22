@@ -1,0 +1,14 @@
+body {
+  background: $body-bg;
+  overflow: hidden;
+}
+
+svg {
+  overflow: visible !important;
+}
+
+div {
+  &[ng-click] {
+    cursor: pointer;
+  }
+}

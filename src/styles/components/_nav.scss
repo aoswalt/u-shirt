@@ -1,13 +1,16 @@
-
 .navbar {
   background: $nav-bg;
   border: 0;
   border-radius: 0;
+  height: $nav-height;
   margin-bottom: 0;
 
   .navbar-brand,
   a {
     color: $nav-fg !important;
+  }
+
+  a {
     font-size: 1.75rem;
   }
 

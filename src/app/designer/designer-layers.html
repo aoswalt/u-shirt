@@ -1,15 +1,17 @@
-<div class="panel">
-  <div class="controls">
+<div class="panel panel-default">
+  <div class="panel-heading controls">
     <div class="icon" ng-click="layers.moveUp()">U</div>
     <div class="icon" ng-click="layers.moveDown()">D</div>
     <div class="icon" ng-click="layers.delete()">X</div>
     <div class="icon"></div>
   </div>
 
-  <div class="layer"
+  <div class="panel-body">
+    <div class="layer"
     ng-repeat="layer in layers.list"
     ng-class="{selected: layer.selected}"
     ng-click="layers.selectLayer(layer)">
     <layer-tumbnail layer="layer"></layer-tumbnail>
+  </div>
   </div>
 </div>

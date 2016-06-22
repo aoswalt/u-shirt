@@ -1,0 +1,45 @@
+.designer {
+  .layers {
+    background: $side-section-bg;
+    overflow: hidden;
+    padding: .125rem;
+
+    .panel {
+      height: 100%;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      // overflow: overlay;
+      text-align: center;
+    }
+
+    .panel-heading {
+      padding-bottom: .33rem;
+      padding-top: .33rem;
+    }
+
+    .panel-body {
+      overflow: overlay;
+      padding-top: .5rem;
+    }
+
+    .controls {
+      .icon {
+        height: $icon-size;
+        margin: .125rem;
+        width: $icon-size;
+      }
+    }
+  }
+
+  .layer {
+    background: $icon-bg;
+    height: 8rem;
+    margin: .75rem .5rem;
+  }
+
+  .thumb {
+    margin: .5rem;
+    max-height: 85%;
+    max-width: 85%;
+  }
+}

@@ -4,17 +4,20 @@ angular.module("ushirt")
     const width = 1300;
     const height = 1500;
 
-    let clientRect = null;
-    let scale = 0;
+    let canvas = null;
 
     let mousePoint = new Vec(0, 0);
     let prevPoint = new Vec(0, 0);
     let isDragging = false;
     let draggingNodes = [];
-    const selectionArea = 50;
+    const selectionArea = 30;
 
 
     const updateMousePoint = (e) => {
+      //TODO(adam): prevent needing to get scale every mouse update
+      const clientRect = canvas.getBoundingClientRect();
+      const scale = Math.min(canvas.width / clientRect.width,
+                             canvas.height / clientRect.height);
       prevPoint = new Vec(mousePoint.x, mousePoint.y);
       mousePoint = new Vec(Math.round(e.x - clientRect.left) * scale,
                            Math.round(e.y - clientRect.top) * scale);
@@ -88,8 +91,8 @@ angular.module("ushirt")
     };
 
     const mousemove = (e) => {
-      updateMousePoint(e);
       if(isDragging) {
+        updateMousePoint(e);
         const env = layersFactory.getSelectedLayer().envelope;
         draggingNodes.forEach((n) => {
           const offset = Vec.subtract(mousePoint, prevPoint);
@@ -104,11 +107,9 @@ angular.module("ushirt")
       replace: true,
       template: `<canvas width="${width}px" height="${height}px"></canvas>`,
       link: (scope, element) => {
-        const canvas = element[0];
-        // canvas.width = width;
-        // canvas.height = height;
-        clientRect = canvas.getBoundingClientRect();
-        scale = Math.min(canvas.width / clientRect.width, canvas.height / clientRect.height);
+        canvas = element[0];
+        canvas.width = width;
+        canvas.height = height;
         const ctx = canvas.getContext("2d");
 
         Art.setContext(ctx);

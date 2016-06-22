@@ -14,7 +14,6 @@ angular.module("ushirt")
 
 
     const updateMousePoint = (e) => {
-      //TODO(adam): prevent needing to get scale every mouse update
       const clientRect = canvas.getBoundingClientRect();
       const scale = Math.min(canvas.width / clientRect.width,
                              canvas.height / clientRect.height);
@@ -105,7 +104,7 @@ angular.module("ushirt")
     return {
       restrict: "E",
       replace: true,
-      template: `<canvas width="${width}px" height="${height}px"></canvas>`,
+      template: `<canvas class="artboard" width="${width}px" height="${height}px"></canvas>`,
       link: (scope, element) => {
         canvas = element[0];
         canvas.width = width;

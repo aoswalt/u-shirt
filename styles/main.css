@@ -1,100 +1,125 @@
 body {
-  background: navy;
-  /*overflow: hidden;*/ }
-
-/* TODO(adam): find fix for 100vh */
-.content {
-  border: 0;
-  height: 94vh; }
-  .content .row,
-  .content .row > div {
-    height: 100%; }
-  .content div[ng-include] {
-    height: 95%; }
-
-.tools {
-  background: teal; }
-
-.design {
-  background: orange; }
-
-.color-area {
-  padding: .75rem; }
-
-.swatch,
-.icon {
-  background: grey;
-  border: 1px solid grey;
-  cursor: pointer;
-  display: inline-block;
-  fill-rule: evenodd;
-  height: 3.25rem;
-  margin: .25rem;
-  vertical-align: middle;
-  width: 3.25rem; }
-
-.shape-area .icon {
-  height: 4rem;
-  width: 4rem; }
+  background: #d8dbde;
+  overflow: hidden; }
 
 svg {
   overflow: visible !important; }
 
-.layers {
-  background: forestgreen; }
-  .layers .panel {
-    height: 100%; }
-  .layers .controls .icon {
-    height: 1.75rem;
-    margin: 0;
-    width: 1.75rem; }
-
-.shirt-color-section {
-  font-size: 2.25rem; }
-
-.dropdown-menu > li {
-  font-size: 1.75rem; }
-  .dropdown-menu > li:hover {
-    background-color: lightgrey;
-    cursor: pointer; }
-
-.shirt-color .swatch {
-  height: 1.75rem;
-  width: 1.75rem; }
-
 div[ng-click] {
   cursor: pointer; }
-
-.caret {
-  border-width: 7px; }
-  .caret.up {
-    border-bottom: 7px solid;
-    border-top: 0; }
-
-canvas {
-  background: white;
-  border: 1px solid black;
-  height: 90%;
-  margin-top: 2rem; }
-
-.layer {
-  border: 1px solid black;
-  margin: .75rem .5rem;
-  text-align: center; }
-
-.selected {
-  background: grey;
-  border: 2px solid blue; }
 
 .navbar {
   background: #48a5af;
   border: 0;
   border-radius: 0;
+  height: 5vh;
   margin-bottom: 0; }
   .navbar .navbar-brand,
   .navbar a {
-    color: #2f323c !important;
+    color: #2f323c !important; }
+  .navbar a {
     font-size: 1.75rem; }
   .navbar .navbar-brand {
     font-size: 2.5rem;
     font-weight: bold; }
+
+.designer {
+  border: 0;
+  box-shadow: 0 2.5rem 1.5rem -2rem #c2c7cb inset;
+  height: 95vh; }
+  .designer .row,
+  .designer .row > div {
+    height: 100%; }
+  .designer div[ng-include] {
+    height: 98%; }
+  .designer .side-section {
+    box-shadow: 0 2.5rem 1.5rem -2rem #406769 inset; }
+  .designer .panel {
+    box-shadow: 0.25rem 0.25rem 1.5rem #3d6162;
+    margin: 1rem; }
+  .designer .caret {
+    border-width: 7px; }
+    .designer .caret.up {
+      border-bottom: 7px solid;
+      border-top: 0; }
+  .designer canvas {
+    background: white; }
+  .designer .icon,
+  .designer .swatch {
+    background: #7f8585;
+    border: 1px solid #7f8585;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle; }
+  .designer .icon {
+    fill-rule: evenodd;
+    height: 3.5rem;
+    margin: .125rem;
+    width: 3.5rem; }
+  .designer .swatch {
+    height: 2.5rem;
+    margin: .25rem;
+    width: 2.5rem; }
+  .designer .selected {
+    background: #9ca6a6;
+    border: 2px solid #4d54aa; }
+
+.designer .tools {
+  background: #508082;
+  overflow-y: auto;
+  padding: .125rem; }
+  .designer .tools .controls {
+    padding: .75rem; }
+  .designer .tools .shirt-color-section {
+    font-size: 2.25rem; }
+  .designer .tools .shirt-color .swatch {
+    height: 1.75rem;
+    width: 1.75rem; }
+  .designer .tools .dropdown > .btn {
+    padding: .25rem .75rem; }
+  .designer .tools .dropdown-menu > li {
+    font-size: 1.75rem; }
+    .designer .tools .dropdown-menu > li:hover {
+      background-color: #9ca6a6;
+      cursor: pointer; }
+  .designer .tools .stroke-weight {
+    font-size: 1.75rem; }
+  .designer .tools .shape-area .icon {
+    height: 4rem;
+    width: 4rem; }
+
+.designer .artboard {
+  box-shadow: 0.25rem 0.25rem 2rem #31353a;
+  margin-top: 2rem;
+  max-height: 95%;
+  max-width: 95%; }
+
+.designer .layers {
+  background: #508082;
+  overflow: hidden;
+  padding: .125rem; }
+  .designer .layers .panel {
+    height: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    text-align: center; }
+  .designer .layers .panel-heading {
+    padding-bottom: .33rem;
+    padding-top: .33rem; }
+  .designer .layers .panel-body {
+    overflow: overlay;
+    padding-top: .5rem; }
+  .designer .layers .controls .icon {
+    height: 3.5rem;
+    margin: .125rem;
+    width: 3.5rem; }
+
+.designer .layer {
+  background: #7f8585;
+  height: 8rem;
+  margin: .75rem .5rem; }
+
+.designer .thumb {
+  margin: .5rem;
+  max-height: 85%;
+  max-width: 85%; }

@@ -1,14 +1,14 @@
-<div class="container-fluid content">
+<div class="container-fluid designer">
   <div class="row" ng-controller="designCtrl as design">
-    <div class="tools col-xs-3">
+    <div class="tools side-section col-xs-3">
       <div ng-include="'app/designer/designer-tools.html'"></div>
     </div>
 
-    <div class="design col-xs-8">
+    <div class="design col-xs-7">
       <artboard></artboard>
     </div>
 
-    <div class="layers col-xs-1">
+    <div class="layers side-section col-xs-2">
       <div ng-controller="layersPanelCtrl as layers"
         ng-include="'app/designer/designer-layers.html'"></div>
     </div>

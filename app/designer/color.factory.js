@@ -8,7 +8,7 @@ angular.module("ushirt")
       {rgb:"#f00", name:"Red"},
       {rgb:"#ff0", name:"Yellow"},
       {rgb:"#080", name:"Green"},
-      {rgb:"#00c", name:"Royal Blue"},
+      {rgb:"#00c", name:"Royal"},
       {rgb:"#309", name:"Navy"}
     ];
     const printColorList = [

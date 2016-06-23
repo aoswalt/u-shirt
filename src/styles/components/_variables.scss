@@ -7,8 +7,11 @@ $nav-fg: rgb(47, 50, 60);
 
 $side-section-bg: rgb(80, 128, 130);
 
-$icon-bg: rgb(127, 133, 133);
+$icon-bg: rgb(178, 182, 182);
+$icon-hover-bg: darken($icon-bg, 12%);
+$icon-click-bg: darken($icon-hover-bg, 10%);
 $icon-size: 3.5rem;
+
 $print-swatch-size: 2.5rem;
 
 $selected-bg:  rgb(156, 166, 166);

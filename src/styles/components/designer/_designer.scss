@@ -38,7 +38,6 @@
 
   .icon,
   .swatch {
-    background: $icon-bg;
     border: 1px solid $icon-bg;
     cursor: pointer;
     display: inline-block;
@@ -46,10 +45,20 @@
   }
 
   .icon {
+    background: $icon-bg;
     fill-rule: evenodd;
     height: $icon-size;
     margin: .125rem;
+    padding: .25rem;
     width: $icon-size;
+
+    &:hover {
+      background: $icon-hover-bg;
+    }
+
+    &:active {
+      background: $icon-click-bg;
+    }
   }
 
   .swatch {

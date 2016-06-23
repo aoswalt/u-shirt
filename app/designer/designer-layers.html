@@ -1,9 +1,25 @@
 <div class="panel panel-default">
   <div class="panel-heading controls">
-    <div class="icon" ng-click="layers.moveUp()">U</div>
-    <div class="icon" ng-click="layers.moveDown()">D</div>
-    <div class="icon" ng-click="layers.delete()">X</div>
-    <div class="icon"></div>
+    <svg class="icon" ng-click="layers.moveUp()">
+      <use xlink:href="#layer-up">
+        <title>Layer Up</title>
+      </use>
+    </svg>
+    <svg class="icon" ng-click="layers.moveDown()">
+      <use xlink:href="#layer-down">
+        <title>Layer Down</title>
+      </use>
+    </svg>
+    <svg class="icon" ng-click="layers.delete()">
+      <use xlink:href="#layer-delete">
+        <title>Delete Layer</title>
+      </use>
+    </svg>
+    <svg class="icon">
+      <use xlink:href="#layer-duplicate">
+        <title>Duplicate Layer</title>
+      </use>
+    </svg>
   </div>
 
   <div class="panel-body">

@@ -46,16 +46,21 @@ div[ng-click] {
     background: white; }
   .designer .icon,
   .designer .swatch {
-    background: #7f8585;
-    border: 1px solid #7f8585;
+    border: 1px solid #b2b6b6;
     cursor: pointer;
     display: inline-block;
     vertical-align: middle; }
   .designer .icon {
+    background: #b2b6b6;
     fill-rule: evenodd;
     height: 3.5rem;
     margin: .125rem;
+    padding: .25rem;
     width: 3.5rem; }
+    .designer .icon:hover {
+      background: #939898; }
+    .designer .icon:active {
+      background: #797f7f; }
   .designer .swatch {
     height: 2.5rem;
     margin: .25rem;
@@ -115,7 +120,7 @@ div[ng-click] {
     width: 3.5rem; }
 
 .designer .layer {
-  background: #7f8585;
+  background: #b2b6b6;
   height: 8rem;
   margin: .75rem .5rem; }
 

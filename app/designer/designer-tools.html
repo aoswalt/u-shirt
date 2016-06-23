@@ -17,10 +17,22 @@
 
   <span class="pull-right">
     <span class="rotation">
-      <div class="icon" ng-click="design.rotateCCW()">L</div>
-      <div class="icon" ng-click="design.rotateCW()">R</div>
+      <svg class="icon" ng-click="design.rotateCCW()">
+        <use xlink:href="#rotate-ccw">
+          <title>Rotate CCW</title>
+        </use>
+      </svg>
+      <svg class="icon" ng-click="design.rotateCW()">
+        <use xlink:href="#rotate-cw">
+          <title>Rotate CW</title>
+        </use>
+      </svg>
     </span>
-    <div class="icon" ng-click="design.resetTransform()">I</div>
+    <svg class="icon" ng-click="design.resetTransform()">
+      <use xlink:href="#layer-reset">
+        <title>Reset Shape</title>
+      </use>
+    </svg>
   </span>
 
   <div class="fill-color-section">

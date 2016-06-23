@@ -4,8 +4,8 @@
       <div ng-include="'app/designer/designer-tools.html'"></div>
     </div>
 
-    <div class="design col-xs-7">
-      <artboard></artboard>
+    <div class="design col-xs-7" ng-controller="designCtrl as design">
+      <artboard ng-style="{background: design.shirtColor.rgb}"></artboard>
     </div>
 
     <div class="layers side-section col-xs-2">

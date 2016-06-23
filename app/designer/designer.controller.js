@@ -4,7 +4,7 @@ angular.module("ushirt")
     shapeDataFactory.loadShapes(response => design.shapeData = response.data);
 
     design.shirtColors = settingsFactory.shirtColorList;
-    design.shirtColor = design.shirtColors[0];
+    design.shirtColor = settingsFactory.getShirtColor();
 
     design.setShirtColor = color => {
       design.shirtColor = color;

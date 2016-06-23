@@ -1,24 +1,40 @@
 <svg id="svgIndex" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
 
-    <g id="svg_basicShapes">
-        <symbol id="BlueBox" viewBox="0 0 4054 2928">
-            <polygon points="0,0 4050,0 4050,2925 0,2925 "/>
-        </symbol>
-    </g>
+  <g id="svg_basicShapes">
+    <symbol viewBox="0 0 28 28">
+      <path id="circle" d="M14 0c8,0 14,6 14,14 0,8 -6,14 -14,14 -8,0 -14,-6 -14,-14 0,-8 6,-14 14,-14z"/>
+    </symbol>
 
-    <g id="svg_compoundShapes">
-        <symbol id="TrimmedShape" viewBox="0 0 545 742">
-            <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 91l121 0 0 175 -121 0 0 -175z"/>
-        </symbol>
+    <symbol viewBox="0 0 30 33">
+      <path id="heart" d="M7 0c4,0 8,3 8,7 0,-4 3,-7 7,-7 4,0 7,3 8,8 0,6 -12,21 -15,25 -3,-4 -15,-17 -15,-25 0,-5 3,-8 7,-8z"/>
+    </symbol>
+    
+    <symbol viewBox="0 0 26 26">
+      <polygon id="square" points="0,0 26,0 26,26 0,26 "/>
+    </symbol>
 
-        <symbol id="TrimmedShape2" viewBox="0 0 545 742">
-            <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 201 l 0 -175 121 0 0 175 -121 0z"/>
-        </symbol>
-    </g>
+    <symbol viewBox="0 0 34 32">
+      <polygon id="star" points="17,0 21,12 34,12 23,20 27,32 17,24 6,32 10,20 0,12 13,12 "/>
+    </symbol>
 
-    <g id="svg_irregularShapes">
-        <symbol id="GreenShape" viewBox="0 0 4054 2928">
-            <path d="M889,763c394,-503 1162,-637 2166,0 420,266 222,836 0,1334l-2359 -176 193 -1159 0 1z"/>
-        </symbol>
-    </g>
+    <symbol viewBox="0 0 41 36">
+      <polygon id="triangle" points="21,0 41,36 0,36 "/>
+    </symbol>
+  </g>
+
+  <g id="svg_compoundShapes">
+    <symbol id="TrimmedShape" viewBox="0 0 545 742">
+      <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 91l121 0 0 175 -121 0 0 -175z"/>
+    </symbol>
+
+    <symbol id="TrimmedShape2" viewBox="0 0 545 742">
+      <path d="M0 154l268 -146c152,-30 240,25 277,146l0 492 -298 0c-98,127 -180,129 -247,0l0 -492z m201 201 l 0 -175 121 0 0 175 -121 0z"/>
+    </symbol>
+  </g>
+
+  <g id="svg_irregularShapes">
+    <symbol id="GreenShape" viewBox="0 0 4054 2928">
+      <path d="M889,763c394,-503 1162,-637 2166,0 420,266 222,836 0,1334l-2359 -176 193 -1159 0 1z"/>
+    </symbol>
+  </g>
 </svg>

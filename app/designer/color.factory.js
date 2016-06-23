@@ -12,6 +12,10 @@ angular.module("ushirt")
       {rgb:"#309", name:"Navy"}
     ];
     const printColorList = [
+      {pms:10,   rgb:"#000",    name:"Black"},
+      {pms:430,  rgb:"#919693", name:"Dark Gray"},
+      {pms:428,  rgb:"#d1cec6", name:"Light Gray"},
+      {pms:20,   rgb:"#fff",    name:"White"},
       {pms:107,  rgb:"#f9e526", name:"Primrose Yellow"},
       {pms:109,  rgb:"#f9d616", name:"Lemon Yellow"},
       {pms:137,  rgb:"#fca311", name:"Golden Yellow"},
@@ -39,11 +43,7 @@ angular.module("ushirt")
       {pms:341,  rgb:"#007a5e", name:"Kelly Green"},
       {pms:343,  rgb:"#00563f", name:"Chrome Green"},
       {pms:466,  rgb:"#d1bf91", name:"Khaki"},
-      {pms:4975, rgb:"#441e1c", name:"Dark Brown"},
-      {pms:20,   rgb:"#fff",    name:"White"},
-      {pms:428,  rgb:"#d1cec6", name:"Light Gray"},
-      {pms:430,  rgb:"#919693", name:"Dark Gray"},
-      {pms:10,   rgb:"#000",    name:"Black"}
+      {pms:4975, rgb:"#441e1c", name:"Dark Brown"}
     ];
 
     return {

@@ -39,8 +39,8 @@ Each view has its own role to fill.
     + [x] rotation buttons
     + [x] reset shape button
 - Polish
-    + [ ] styling
-    + [ ] icons
+    + [x] styling
+    + [x] icons
     + [ ] style animations
 - Profile Page Design
     + [ ] overall layout

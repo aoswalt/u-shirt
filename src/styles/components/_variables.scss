@@ -12,9 +12,11 @@ $icon-hover-bg: darken($icon-bg, 12%);
 $icon-click-bg: darken($icon-hover-bg, 10%);
 $icon-size: 3.5rem;
 
+$layer-bg: rgb(211, 226, 226);
+
 $print-swatch-size: 2.5rem;
 
 $selected-bg:  rgb(156, 166, 166);
-$selected-border: 2px solid rgb(77, 84, 170);
+$selected-border: 4px solid rgb(77, 84, 170);
 
 $artboard-shadow: .25rem .25rem 2rem darken($body-bg, 65%);

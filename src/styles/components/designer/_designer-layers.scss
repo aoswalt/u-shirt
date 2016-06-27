@@ -32,9 +32,13 @@
   }
 
   .layer {
-    background: $icon-bg;
+    background: $layer-bg;
     height: 8rem;
     margin: .75rem .5rem;
+
+    &.selected {
+      background: $selected-bg;
+    }
   }
 
   .thumb {

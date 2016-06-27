@@ -4,7 +4,7 @@ angular.module("ushirt")
     const fillColorList = colorFactory.getPrintColorList();
     const strokeColorList = colorFactory.getPrintColorList();
 
-    let shirtColor = Object.assign({}, shirtColorList[0]);
+    const shirtColor = Object.assign({}, shirtColorList[0]);
     const style = {
       fill: null,
       stroke: null,

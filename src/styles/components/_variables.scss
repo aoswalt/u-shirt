@@ -17,6 +17,8 @@ $layer-bg: rgb(211, 226, 226);
 $print-swatch-size: 2.5rem;
 
 $selected-bg:  rgb(156, 166, 166);
-$selected-border: 4px solid rgb(77, 84, 170);
+$selected-accent: rgb(77, 84, 170);
+$selected-border: .33rem solid $selected-accent;
+$selected-shadow: 0 0 0 .25rem $selected-accent;
 
 $artboard-shadow: .25rem .25rem 2rem darken($body-bg, 65%);

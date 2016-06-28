@@ -67,7 +67,8 @@ div[ng-click] {
     width: 2.5rem; }
   .designer .selected {
     background: #9ca6a6;
-    border: 4px solid #4d54aa; }
+    border: 0.33rem solid #4d54aa;
+    box-shadow: 0 0 0 0.25rem #4d54aa; }
 
 .designer .tools {
   background: #508082;
@@ -91,6 +92,7 @@ div[ng-click] {
     font-size: 1.75rem; }
   .designer .tools .shape-area .icon {
     height: 4rem;
+    margin: .25rem;
     width: 4rem; }
 
 .designer .artboard {

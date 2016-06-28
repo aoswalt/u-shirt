@@ -19,6 +19,18 @@ angular.module("ushirt")
       drawList();
     };
 
+    const duplicateSelectedLayer = () => {
+      if(!selectedLayer) { return; }
+
+      list.unshift(new Layer(Object.assign({}, selectedLayer.shape),
+                             Object.assign({}, selectedLayer.opts),
+                             null));
+      Art.Envelope.setNodes(list[0].envelope, selectedLayer.envelope.nodes);
+      Art.Envelope.calcTmat(list[0].envelope);
+      selectLayer(list[0]);
+      drawList();
+    };
+
     const getSelectedLayer = () => selectedLayer;
 
     const selectLayer = layer => {
@@ -109,6 +121,7 @@ angular.module("ushirt")
     return {
       list,
       addLayer,
+      duplicateSelectedLayer,
       selectLayer,
       selectLayerAtPoint,
       getSelectedLayer,

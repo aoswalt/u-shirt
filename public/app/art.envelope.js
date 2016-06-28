@@ -27,6 +27,17 @@ var Art = (function(art) {  // eslint-disable-line no-var
     this.tmat = Matrix.idmat.slice();
   };
 
+  /* eslint-disable no-magic-numbers */
+  art.Envelope.setNodes = (env, nodeList) => {
+    env.nodes = [
+      new Vec(nodeList[0].x, nodeList[0].y),
+      new Vec(nodeList[1].x, nodeList[1].y),
+      new Vec(nodeList[2].x, nodeList[2].y),
+      new Vec(nodeList[3].x, nodeList[3].y)
+    ];
+  };
+  /* eslint-enable no-magic-numbers */
+
   art.Envelope.calcTmat = (env) => {
     env.tmat = Matrix.multmm(Matrix.makeBasisMap(env.nodes), env.Ainverse);
 
@@ -87,17 +98,12 @@ var Art = (function(art) {  // eslint-disable-line no-var
     });
     art.Envelope.calcTmat(env);
   };
+  /* eslint-enable no-magic-numbers */
 
   art.Envelope.reset = (env) => {
-    env.nodes = [
-      new Vec(env.startNodes[0].x, env.startNodes[0].y),
-      new Vec(env.startNodes[1].x, env.startNodes[1].y),
-      new Vec(env.startNodes[2].x, env.startNodes[2].y),
-      new Vec(env.startNodes[3].x, env.startNodes[3].y)
-    ];
+    art.Envelope.setNodes(env, env.startNodes);
     art.Envelope.calcTmat(env);
   };
-  /* eslint-enable no-magic-numbers */
 
   return art;
 }(Art || {}));

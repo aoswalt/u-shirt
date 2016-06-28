@@ -75,7 +75,7 @@
 <div class="panel panel-default" ng-repeat="group in design.shapeData.groups">
   <div class="panel-heading" ng-click="group.isOpen = !group.isOpen">
     <h4 class="panel-title">
-      {{group.groupId}}<span class="caret" ng-class="{up: group.isOpen}"></span>
+      {{group.groupId | title}}<span class="caret" ng-class="{up: group.isOpen}"></span>
     </h4>
   </div>
   <div uib-collapse="!group.isOpen">

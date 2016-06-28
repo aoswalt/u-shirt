@@ -6,4 +6,5 @@ angular.module("ushirt")
     layers.moveUp = () => layers.list = layersFactory.moveSelectedLayer(-1);
     layers.moveDown = () => layers.list = layersFactory.moveSelectedLayer(1);
     layers.delete = () => layersFactory.deleteSelectedLayer();
+    layers.duplicate = () => layersFactory.duplicateSelectedLayer();
   });

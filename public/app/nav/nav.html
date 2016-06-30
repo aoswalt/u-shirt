@@ -1,0 +1,11 @@
+<nav class="navbar navbar-default" ng-controller="navCtrl as nav">
+  <div class="container">
+    <div class="navbar-header">
+      <span class="navbar-brand">U-Shirt!</span>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="">Browse</a></li>
+      <li><a href="" ng-click="nav.enter()" ng-bind-html="nav.user.name">User</a></li>
+    </ul>
+  </div>
+</nav>

@@ -11,24 +11,15 @@
 <body>
   <div ng-include="'data/icons.svg'"></div>
 
-  <nav class="navbar navbar-default" ng-controller="navCtrl as nav">
-    <div class="container">
-      <div class="navbar-header">
-        <span class="navbar-brand">U-Shirt!</span>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Log In <span class="glyphicon glyphicon-user"></span></a></li>
-      </ul>
-    </div>
-  </nav>
-
+  <div ng-include="'app/nav/nav.html'"></div>
   <div ng-view></div>
 
 
   <script src="lib/angular/angular.min.js" type="text/javascript"></script>
   <script src="lib/angular-route/angular-route.min.js" type="text/javascript"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+  <!-- <script src="lib/firebase/firebase.js" type="text/javascipt"></script> -->
 
   <script src="app/vector.js" type="text/javascript"></script>
   <script src="app/matrix.js" type="text/javascript"></script>
@@ -40,7 +31,11 @@
 
   <script src="app/main.js" type="text/javascript"></script>
   <script src="app/filters.js" type="text/javascript"></script>
+
   <script src="app/nav/nav.controller.js" type="text/javascript"></script>
+  <script src="app/auth/auth-modal.controller.js" type="text/javascript"></script>
+  <script src="app/auth/auth.factory.js" type="text/javascript"></script>
+
   <script src="app/designer/designer.controller.js" type="text/javascript"></script>
   <script src="app/designer/designer.config.js" type="text/javascript"></script>
   <script src="app/designer/layers-panel.controller.js" type="text/javascript"></script>

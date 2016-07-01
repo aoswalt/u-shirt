@@ -14,6 +14,16 @@
     font-size: 1.75rem;
   }
 
+  li {
+    :hover {
+      background: $nav-hover-bg !important;
+    }
+
+    :active {
+      background: $nav-click-bg !important;
+    }
+  }
+
   .navbar-brand {
     font-size: 2.5rem;
     font-weight: bold;

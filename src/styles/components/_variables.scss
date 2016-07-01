@@ -4,6 +4,8 @@ $canvas-default-bg: rgb(255, 255, 255);
 $nav-height: 5vh;
 $nav-bg: rgb(72, 165, 175);
 $nav-fg: rgb(47, 50, 60);
+$nav-hover-bg: darken($nav-bg, 10%);
+$nav-click-bg: darken($nav-hover-bg, 10%);
 
 $side-section-bg: rgb(80, 128, 130);
 

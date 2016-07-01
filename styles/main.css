@@ -19,6 +19,10 @@ div[ng-click] {
     color: #2f323c !important; }
   .navbar a {
     font-size: 1.75rem; }
+  .navbar li :hover {
+    background: #39838b !important; }
+  .navbar li :active {
+    background: #2a6167 !important; }
   .navbar .navbar-brand {
     font-size: 2.5rem;
     font-weight: bold; }

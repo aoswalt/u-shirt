@@ -17,7 +17,6 @@ angular.module("ushirt")
     return {
       user: currentUser,
       register: (email, password) => $timeout()
-        .catch(err => console.error(err))
         .then(() => firebase.auth().createUserWithEmailAndPassword(email, password))
         .then((user) => ({
           uid: user.uid,
@@ -26,7 +25,6 @@ angular.module("ushirt")
         }))
         .then(user => usersFactory.createUser(user)),
       login: (email, password) => $timeout()
-        .catch(err => console.error(err))
         .then(() => firebase.auth().signInWithEmailAndPassword(email, password))
     };
   });

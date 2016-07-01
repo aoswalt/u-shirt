@@ -5,7 +5,6 @@ angular.module("ushirt")
 
     nav.enter = () => $uibModal.open({
       templateUrl: "app/auth/auth-modal.html",
-      size: "lg",
       controller: "authModalCtrl",
       controllerAs: "auth"
     });

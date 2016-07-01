@@ -4,11 +4,14 @@ angular.module("ushirt")
 
     return {
       getUserData: (uid) => $timeout()
+        .catch(err => console.error(err))
         .then(() => usersRef.child(uid).once("value"))
-        .catch(err => console.error(err))
         .then(snapshot => snapshot.val()),
-      setUserData: (user) => $timeout()
-        .then(() => usersRef.child(user.uid).set(user))
+      createUser: (user) => $timeout()
         .catch(err => console.error(err))
+        .then(() => usersRef.child(user.uid).set(user)),
+      setUserData: (user) => $timeout()
+        .catch(err => console.error(err))
+        .then(() => usersRef.child(user.uid).set(user))
     };
   });

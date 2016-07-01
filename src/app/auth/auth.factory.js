@@ -1,22 +1,30 @@
 angular.module("ushirt")
   .factory("authFactory", (usersFactory, $timeout, $sce) => {
-    const user = {
+    const currentUser = {
       name: $sce.trustAsHtml(`Log In <span class="glyphicon glyphicon-user"></span>`)
     };
 
-    const setName = (name) => user.name = $sce.trustAsHtml(`${name} <span></span>`);
+    const setName = (name) => currentUser.name = $sce.trustAsHtml(`${name} <span></span>`);
 
-    firebase.auth().onAuthStateChanged((usr) => {
-      if(usr) {
-        usersFactory.getUserData(usr.uid).then(data => setName(data.name));
+    firebase.auth().onAuthStateChanged((user) => {
+      if(user) {
+        usersFactory.getUserData(user.uid).then(data => setName(data.name));
+      } else {
+        setName("None");
       }
     });
 
     return {
-      user,
+      user: currentUser,
       register: (email, password) => $timeout()
         .catch(err => console.error(err))
-        .then(() => firebase.auth().createUserWithEmailAndPassword(email, password)),
+        .then(() => firebase.auth().createUserWithEmailAndPassword(email, password))
+        .then((user) => ({
+          uid: user.uid,
+          email: user.email,
+          name: user.email.match(/(.+)@.+/)[1]
+        }))
+        .then(user => usersFactory.createUser(user)),
       login: (email, password) => $timeout()
         .catch(err => console.error(err))
         .then(() => firebase.auth().signInWithEmailAndPassword(email, password))

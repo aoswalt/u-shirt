@@ -52,8 +52,8 @@ Matrix.multmv = (m, v) =>
 
 Matrix.makeBasisMap = (nodes) => {
   const M = [nodes[0].x, nodes[1].x, nodes[2].x,
-            nodes[0].y, nodes[1].y, nodes[2].y,
-            1,          1,          1];
+             nodes[0].y, nodes[1].y, nodes[2].y,
+             1,          1,          1];
 
   const Mi = Matrix.invert(M);
   const coes = Matrix.multmv(Mi, [nodes[3].x, nodes[3].y, 1]);

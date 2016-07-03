@@ -1,7 +1,7 @@
 angular.module("ushirt")
-  .controller("navCtrl", function(authFactory, $sce, $uibModal) {
+  .controller("navCtrl", function(usersFactory, $sce, $uibModal) {
     const nav = this;
-    nav.user = authFactory.user;
+    nav.user = usersFactory.currentUser;
 
     nav.enter = () => $uibModal.open({
       templateUrl: "app/auth/auth-modal.html",

@@ -1,3 +1,7 @@
+* {
+  @include prefix(user-select, none);
+}
+
 body {
   background: $body-bg;
   overflow: hidden;

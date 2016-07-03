@@ -1,19 +1,14 @@
 angular.module("ushirt")
   .factory("authFactory", (usersFactory, $timeout) => {
-    const currentUser = {};
-
-    const setUser = (user) => Object.assign(currentUser, user);
-
     firebase.auth().onAuthStateChanged((user) => {
       if(user) {
-        usersFactory.getUserData(user.uid).then(data => setUser(data));
+        usersFactory.setCurrentUser(user);
       } else {
-        $timeout().then(() => setUser({uid:"", email:"", name:"Log In"}));
+        usersFactory.clearCurrentUser();
       }
     });
 
     return {
-      user: currentUser,
       register: (email, password) => $timeout()
         .then(() => firebase.auth().createUserWithEmailAndPassword(email, password))
         .then((user) => ({

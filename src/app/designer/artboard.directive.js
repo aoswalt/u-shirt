@@ -123,6 +123,8 @@ angular.module("ushirt")
         element.on("mouseup", mousefree);
         element.on("mouseout", mousefree);
         element.on("mousemove", mousemove);
+
+        layersFactory.drawList();
       }
     };
   });

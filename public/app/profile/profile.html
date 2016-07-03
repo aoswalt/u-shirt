@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="user-info">
+    <p><span class="info-label">Name</span>{{profile.user.name}}</p>
+    <p><span class="info-label">E-Mail</span>{{profile.user.email}}</p>
+  </div>
+
+  <div class="design-list" ng-repeat="design in profile.designs">
+    <div class="design">
+      {{design.shirtColor}}
+    </div>
+  </div>
+</div>

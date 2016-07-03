@@ -1,16 +1,14 @@
 angular.module("ushirt")
-  .factory("authFactory", (usersFactory, $timeout, $sce) => {
-    const currentUser = {
-      name: $sce.trustAsHtml(`Log In <span class="glyphicon glyphicon-user"></span>`)
-    };
+  .factory("authFactory", (usersFactory, $timeout) => {
+    const currentUser = {};
 
-    const setName = (name) => currentUser.name = $sce.trustAsHtml(`${name} <span></span>`);
+    const setUser = (user) => Object.assign(currentUser, user);
 
     firebase.auth().onAuthStateChanged((user) => {
       if(user) {
-        usersFactory.getUserData(user.uid).then(data => setName(data.name));
+        usersFactory.getUserData(user.uid).then(data => setUser(data));
       } else {
-        setName("None");
+        $timeout().then(() => setUser({uid:"", email:"", name:"Log In"}));
       }
     });
 

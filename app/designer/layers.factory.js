@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .factory("layersFactory", (settingsFactory, $timeout) => {
+  .factory("layersFactory", (settingsFactory, shapeDataFactory, $timeout) => {
     let list = [];
     let selectedLayer = null;
 
@@ -15,6 +15,7 @@ angular.module("ushirt")
       list.unshift(new Layer(shape,
                              settingsFactory.getAsOpts(),
                              null));  //NOTE(adam): no ctx until directive
+      list[0].shapeId = shapeData.id;
       selectLayer(list[0]);
       drawList();
     };
@@ -118,6 +119,26 @@ angular.module("ushirt")
       $timeout();
     };
 
+    const serializeList = () => list.map(l => ({
+      shapeId: l.shapeId,
+      nodePositions: l.envelope.nodes,
+      options: l.opts
+    }));
+
+    const deserializeList = (serial) => {
+      list.length = 0;
+      serial.forEach(e => {
+        const shapeData = shapeDataFactory.getShapeData(e.shapeId);
+        const shape = Art.parseSvg(shapeData);
+        const layer = new Layer(shape, e.options, null);
+        layer.shapeId = e.shapeId;
+        list.unshift(layer);
+        Art.Envelope.setNodes(layer.envelope, e.nodePositions);
+        Art.Envelope.calcTmat(layer.envelope);
+      });
+      drawList();
+    };
+
     return {
       list,
       addLayer,
@@ -130,6 +151,8 @@ angular.module("ushirt")
       updateSelectedOpts,
       rotateSelectedLayerEnvelope,
       resetSelectedLayer,
-      drawList
+      drawList,
+      serializeList,
+      deserializeList
     };
   });

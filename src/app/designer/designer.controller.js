@@ -1,7 +1,7 @@
 angular.module("ushirt")
   .controller("designCtrl", function(settingsFactory, shapeDataFactory, layersFactory) {
     const design = this;
-    shapeDataFactory.loadShapes(response => design.shapeData = response.data);
+    shapeDataFactory.loadShapes().then(data => design.shapeData = data);
 
     design.shirtColors = settingsFactory.shirtColorList;
     design.shirtColor = settingsFactory.getShirtColor();

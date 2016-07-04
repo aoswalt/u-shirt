@@ -67,6 +67,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     }
   };
 
+  //TODO(adam): remove because only ever use 1 transfom
   art.Shape.addTransform = (shape, tmat) => {
     shape.transforms.push(tmat);
     art.Shape.calcFinalTransform(shape);

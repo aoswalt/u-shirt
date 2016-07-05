@@ -5,6 +5,8 @@ angular.module("ushirt")
     const saveDesign = () => {
       const designData = layersFactory.serializeDesign();
       designData.uid = usersFactory.currentUser.uid;
+      layersFactory.selectLayer(null);
+      designData.thumb = Art.ctx.canvas.toDataURL();
       designsRef.child(designsRef.push().key).update(designData);
     };
 

@@ -143,3 +143,11 @@ div[ng-click] {
   margin: .5rem;
   max-height: 85%;
   max-width: 85%; }
+
+.profile .design {
+  display: inline-block;
+  margin: 1rem; }
+
+.profile .thumb {
+  height: 300px;
+  width: 260px; }

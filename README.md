@@ -46,12 +46,12 @@ Each view has its own role to fill.
     + [x] sections detailed layout
     + [x] define components/interactivity
 - Browser Page Design
-    + [ ] overall layout
-    + [ ] sections detailed layout
-    + [ ] define components/interactivity
+    + [x] overall layout
+    + [x] sections detailed layout
+    + [x] define components/interactivity
 - Social / DB
     + [x] store design
-    + [ ] browse designs
+    + [x] browse designs
     + [x] designs per user
 - Intermediate Logic
     + [ ] temporary vs permanent saving

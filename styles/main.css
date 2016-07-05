@@ -19,7 +19,7 @@ div[ng-click] {
   background: #48a5af;
   border: 0;
   border-radius: 0;
-  height: 5vh;
+  height: 5.5vh;
   margin-bottom: 0; }
   .navbar .navbar-brand,
   .navbar a {
@@ -37,7 +37,7 @@ div[ng-click] {
 .designer {
   border: 0;
   box-shadow: 0 2.5rem 1.5rem -2rem #c2c7cb inset;
-  height: 95vh; }
+  height: 94.5vh; }
   .designer .row,
   .designer .row > div {
     height: 100%; }
@@ -150,7 +150,7 @@ div[ng-click] {
   .profile .content {
     background: #508082;
     box-shadow: 0 2.5rem 1.5rem -2rem #406769 inset;
-    height: 95vh; }
+    height: 94.5vh; }
   .profile .user-info {
     box-shadow: 0.25rem 0.25rem 1.5rem #3d6162;
     margin: 1rem;
@@ -175,7 +175,7 @@ div[ng-click] {
   .browse .content {
     background: #508082;
     box-shadow: 0 2.5rem 1.5rem -2rem #406769 inset;
-    height: 95vh; }
+    height: 94.5vh; }
   .browse .design-list {
     overflow: auto; }
   .browse .design {

@@ -5,7 +5,7 @@ angular.module("ushirt")
     return {
       loadShapes: () => {
         if(shapeData) {
-          return $timeout().then(shapeData);
+          return $timeout().then(() => shapeData);
         } else {
           return $http.get("data/shapes.json")
             .then(response => shapeData = response.data)

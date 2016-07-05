@@ -1,15 +1,30 @@
-<div class="profile container">
-  <div class="user-info">
-    <p><span class="info-label">Name</span>{{profile.user.name}}</p>
-    <p><span class="info-label">E-Mail</span>{{profile.user.email}}</p>
-  </div>
+<div class="profile container-fluid">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10 content">
+    <div class="user-info panel">
+      <table>
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td class="info-label">Name</td>
+            <td>{{profile.user.name}}</td>
+          </tr>
+          <tr>
+            <td class="info-label">E-Mail</td>
+            <td>{{profile.user.email}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <div class="design-list">
-    <div class="design" ng-repeat="design in profile.designs">
-      <a href="" ng-click="profile.loadDesign(design)">
-        <img class="thumb" src="{{design.thumb}}"
+    <div class="design-list">
+      <div class="design" ng-repeat="design in profile.designs">
+        <a href="" ng-click="profile.loadDesign(design)">
+          <img class="thumb" src="{{design.thumb}}"
           ng-style="{background: design.shirtColor}">
-      </a>
+        </a>
+      </div>
     </div>
   </div>
+  <div class="col-xs-1"></div>
 </div>

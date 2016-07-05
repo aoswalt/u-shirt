@@ -120,6 +120,7 @@ div[ng-click] {
     height: 100%;
     margin-left: 1rem;
     margin-right: 1rem;
+    overflow: overlay;
     text-align: center; }
   .designer .layers .panel-heading {
     padding-bottom: .33rem;
@@ -144,10 +145,27 @@ div[ng-click] {
   max-height: 85%;
   max-width: 85%; }
 
-.profile .design {
-  display: inline-block;
-  margin: 1rem; }
-
-.profile .thumb {
-  height: 300px;
-  width: 260px; }
+.profile {
+  box-shadow: 0 2.5rem 1.5rem -2rem #c2c7cb inset; }
+  .profile .content {
+    background: #508082;
+    box-shadow: 0 2.5rem 1.5rem -2rem #406769 inset;
+    height: 95vh; }
+  .profile .user-info {
+    box-shadow: 0.25rem 0.25rem 1.5rem #3d6162;
+    margin: 1rem;
+    padding: 1rem; }
+  .profile .info-label {
+    font-weight: bold;
+    padding-right: 1rem; }
+  .profile .design-list {
+    overflow: auto; }
+  .profile .design {
+    box-shadow: 0.25rem 0.25rem 1.5rem #3d6162;
+    display: inline-block;
+    margin: 1rem; }
+    .profile .design :hover {
+      box-shadow: 0.25rem 0.25rem 1.5rem #60999b; }
+  .profile .thumb {
+    height: 300px;
+    width: 260px; }

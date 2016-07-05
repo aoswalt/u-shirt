@@ -129,7 +129,7 @@ angular.module("ushirt")
     });
 
     const deserializeDesign = (serial) => {
-      const shirtColor = settingsFactory.shirtColorList.find(c => c.rgb = serial.shirtColor);
+      const shirtColor = settingsFactory.shirtColorList.find(c => c.rgb === serial.shirtColor);
       settingsFactory.setShirtColor(shirtColor);
 
       list.length = 0;

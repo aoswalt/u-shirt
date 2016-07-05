@@ -18,8 +18,15 @@ angular.module("ushirt")
       .then(data => data.filter(d => d.uid === usersFactory.currentUser.uid))
       .then(data => data.sort((a,b) => b.created - a.created));
 
+    const fetchAllDesigns = () => $timeout()
+      .then(() => designsRef.once("value"))
+      .then(snapshot => snapshot.val())
+      .then(data => Object.keys(data).map(key => data[key]))
+      .then(data => data.sort((a,b) => b.created - a.created));
+
     return {
       saveDesign,
-      fetchDesigns
+      fetchDesigns,
+      fetchAllDesigns
     };
   });

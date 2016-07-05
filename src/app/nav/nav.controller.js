@@ -11,4 +11,5 @@ angular.module("ushirt")
 
 
     nav.save = ioFactory.saveDesign;
+    nav.browse = () => alert("browse");
   });

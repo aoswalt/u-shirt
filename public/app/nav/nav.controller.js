@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .controller("navCtrl", function(usersFactory, ioFactory, $sce, $uibModal) {
+  .controller("navCtrl", function(usersFactory, ioFactory, $sce, $uibModal, $location) {
     const nav = this;
     nav.user = usersFactory.currentUser;
 
@@ -11,5 +11,5 @@ angular.module("ushirt")
 
 
     nav.save = ioFactory.saveDesign;
-    nav.browse = () => alert("browse");
+    nav.browse = () => $location.path("/browse");
   });

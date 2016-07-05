@@ -169,3 +169,21 @@ div[ng-click] {
   .profile .thumb {
     height: 300px;
     width: 260px; }
+
+.browse {
+  box-shadow: 0 2.5rem 1.5rem -2rem #c2c7cb inset; }
+  .browse .content {
+    background: #508082;
+    box-shadow: 0 2.5rem 1.5rem -2rem #406769 inset;
+    height: 95vh; }
+  .browse .design-list {
+    overflow: auto; }
+  .browse .design {
+    box-shadow: 0.25rem 0.25rem 1.5rem #3d6162;
+    display: inline-block;
+    margin: 1rem; }
+    .browse .design :hover {
+      box-shadow: 0.25rem 0.25rem 1.5rem #60999b; }
+  .browse .thumb {
+    height: 225px;
+    width: 195px; }

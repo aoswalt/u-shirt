@@ -4,8 +4,12 @@
       <a href="/#/" class="navbar-brand">U-Shirt!</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="" ng-click="nav.save()">Save</a></li>
       <li><a href="" ng-click="nav.browse()">Browse</a></li>
+
+      <li ng-show="nav.user.uid">
+        <a href="" ng-click="nav.save()">Save</a>
+      </li>
+      
       <li ng-hide="nav.user.uid">
         <a href="" ng-click="nav.enter()">Log In <span class="glyphicon glyphicon-user"></span></a>
       </li>

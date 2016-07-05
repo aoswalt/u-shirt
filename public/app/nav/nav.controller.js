@@ -1,5 +1,5 @@
 angular.module("ushirt")
-  .controller("navCtrl", function(usersFactory, $sce, $uibModal) {
+  .controller("navCtrl", function(usersFactory, ioFactory, $sce, $uibModal) {
     const nav = this;
     nav.user = usersFactory.currentUser;
 
@@ -8,4 +8,7 @@ angular.module("ushirt")
       controller: "authModalCtrl",
       controllerAs: "auth"
     });
+
+
+    nav.save = ioFactory.saveDesign;
   });

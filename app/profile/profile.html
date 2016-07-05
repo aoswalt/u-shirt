@@ -6,8 +6,10 @@
 
   <div class="design-list">
     <div class="design" ng-repeat="design in profile.designs">
-      <img class="thumb" src="{{design.thumb}}"
-        ng-style="{background: design.shirtColor}">
+      <a href="" ng-click="profile.loadDesign(design)">
+        <img class="thumb" src="{{design.thumb}}"
+          ng-style="{background: design.shirtColor}">
+      </a>
     </div>
   </div>
 </div>

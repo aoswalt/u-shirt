@@ -1,0 +1,12 @@
+<div class="browse container-fluid">
+  <div class="col-xs-10 col-xs-offset-1 content">
+    <div class="design-list">
+      <div class="design" ng-repeat="design in browse.designs">
+        <a href="" ng-click="browse.loadDesign(design)">
+          <img class="thumb" src="{{design.thumb}}"
+          ng-style="{background: design.shirtColor}">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

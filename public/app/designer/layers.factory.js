@@ -119,13 +119,19 @@ angular.module("ushirt")
       $timeout();
     };
 
-    const serializeList = () => list.map(l => ({
-      shapeId: l.shapeId,
-      nodePositions: l.envelope.nodes,
-      options: l.opts
-    }));
+    const serializeDesign = () => ({
+      shirtColor: settingsFactory.getShirtColor().rgb,
+      layers: list.map(l => ({
+        shapeId: l.shapeId,
+        nodePositions: l.envelope.nodes,
+        options: l.opts
+      }))
+    });
 
-    const deserializeList = (serial) => {
+    const deserializeDesign = (serial) => {
+      const shirtColor = settingsFactory.shirtColorList.find(c => c.rgb = serial.shirtColor);
+      settingsFactory.setShirtColor(shirtColor);
+
       list.length = 0;
       serial.forEach(e => {
         const shapeData = shapeDataFactory.getShapeData(e.shapeId);
@@ -152,7 +158,7 @@ angular.module("ushirt")
       rotateSelectedLayerEnvelope,
       resetSelectedLayer,
       drawList,
-      serializeList,
-      deserializeList
+      serializeDesign,
+      deserializeDesign
     };
   });

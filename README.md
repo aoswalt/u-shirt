@@ -41,19 +41,18 @@ Each view has its own role to fill.
 - Polish
     + [x] styling
     + [x] icons
-    + [ ] style animations
 - Profile Page Design
-    + [ ] overall layout
-    + [ ] sections detailed layout
-    + [ ] define components/interactivity
+    + [x] overall layout
+    + [x] sections detailed layout
+    + [x] define components/interactivity
 - Browser Page Design
     + [ ] overall layout
     + [ ] sections detailed layout
     + [ ] define components/interactivity
 - Social / DB
-    + [ ] store design
+    + [x] store design
     + [ ] browse designs
-    + [ ] designs per user
+    + [x] designs per user
 - Intermediate Logic
     + [ ] temporary vs permanent saving
     + [ ] fork designs
@@ -65,6 +64,7 @@ Each view has its own role to fill.
     + [ ] view design history
     + [ ] design fork branch tree
 - Advanced Logic
+    + [ ] style animations
     + [ ] implement text/fonts
 
 ### Future Ideas

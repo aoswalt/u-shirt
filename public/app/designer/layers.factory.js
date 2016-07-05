@@ -133,7 +133,7 @@ angular.module("ushirt")
       settingsFactory.setShirtColor(shirtColor);
 
       list.length = 0;
-      serial.forEach(e => {
+      serial.layers.forEach(e => {
         const shapeData = shapeDataFactory.getShapeData(e.shapeId);
         const shape = Art.parseSvg(shapeData);
         const layer = new Layer(shape, e.options, null);

@@ -26,6 +26,7 @@ angular.module("ushirt")
       list.unshift(new Layer(Object.assign({}, selectedLayer.shape),
                              Object.assign({}, selectedLayer.opts),
                              null));
+      list[0].shapeId = selectedLayer.shapeId;
       Art.Envelope.setNodes(list[0].envelope, selectedLayer.envelope.nodes);
       Art.Envelope.calcTmat(list[0].envelope);
       selectLayer(list[0]);
@@ -132,6 +133,7 @@ angular.module("ushirt")
       const shirtColor = settingsFactory.shirtColorList.find(c => c.rgb === serial.shirtColor);
       settingsFactory.setShirtColor(shirtColor);
 
+      selectedLayer = null;
       list.length = 0;
       serial.layers.forEach(e => {
         const shapeData = shapeDataFactory.getShapeData(e.shapeId);

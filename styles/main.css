@@ -105,6 +105,10 @@ div[ng-click] {
     height: 4rem;
     margin: .25rem;
     width: 4rem; }
+  .designer .tools .shape-area svg {
+    max-height: 90%;
+    max-width: 90%;
+    vertical-align: middle; }
 
 .designer .artboard {
   box-shadow: 0.25rem 0.25rem 2rem #31353a;

@@ -140,12 +140,11 @@ angular.module("ushirt")
         const shape = Art.parseSvg(shapeData);
         const layer = new Layer(shape, e.options, null);
         layer.shapeId = e.shapeId;
-        list.push(layer);
+        $timeout(list.push(layer));
         Art.Envelope.setNodes(layer.envelope, e.nodePositions);
         Art.Envelope.calcTmat(layer.envelope);
       });
       drawList();
-      $timeout();
     };
 
     return {

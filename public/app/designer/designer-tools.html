@@ -81,7 +81,7 @@
   <div uib-collapse="!group.isOpen">
     <div class="panel-body shape-area">
       <div class="icon" ng-repeat="shape in group.shapes" ng-click="design.addShape(shape)">
-        <svg ng-attr-view_box="{{shape.viewBox}}" ng-attr-height="auto" ng-attr-width="auto">
+        <svg ng-attr-view_box="{{shape.viewBox}}">
           <polygon ng-if="shape.type === 'polygon'" ng-attr-points="{{shape.data}}"/>
           <path ng-if="shape.type === 'path'" ng-attr-d="{{shape.data}}" />
         </svg>

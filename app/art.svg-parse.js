@@ -216,7 +216,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
           // may not work on more complex paths, needs further testing
           if(paths.length > 1 && art.ctx.isPointInPath(paths[paths.length - 1].startPoint.x, paths[paths.length - 1].startPoint.y)) {
             //console.log("in path");
-            Art.Path.reverse(paths[paths.length - 1]);
+            // Art.Path.reverse(paths[paths.length - 1]);
           }
 
           Art.Path.addCommand(paths[paths.length - 1], art.ctx.closePath, []);

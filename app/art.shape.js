@@ -56,7 +56,7 @@ var Art = (function(art) {  // eslint-disable-line no-var
     if(opts) {
       if(opts.fill !== "none") {
         ctx.fillStyle = opts.fill;
-        ctx.fill();
+        ctx.fill("evenodd");
       }
 
       if(opts.stroke !== "none" && opts.weight > 0) {

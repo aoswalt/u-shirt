@@ -18,6 +18,8 @@ angular.module("ushirt")
         }))
         .then(user => usersFactory.createUser(user)),
       login: (email, password) => $timeout()
-        .then(() => firebase.auth().signInWithEmailAndPassword(email, password))
+        .then(() => firebase.auth().signInWithEmailAndPassword(email, password)),
+      logOut: () => $timeout()
+        .then(() => firebase.auth().signOut())
     };
   });

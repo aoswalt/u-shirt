@@ -55,7 +55,7 @@ Each view has its own role to fill.
     + [x] designs per user
 - Intermediate Logic
     + [ ] temporary vs permanent saving
-    + [ ] fork designs
+    + [x] fork designs
 - History Page Design
     + [ ] overall layout
     + [ ] sections detailed layout

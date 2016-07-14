@@ -1,5 +1,6 @@
 angular.module("ushirt")
-  .controller("navCtrl", function(usersFactory, ioFactory, $sce, $uibModal, $location) {
+  .controller("navCtrl", function(usersFactory, ioFactory, authFactory, $sce, $uibModal, $location) {
+    //NOTE(adam): inclucding authFactory to trigger auto-login
     const nav = this;
     nav.user = usersFactory.currentUser;
 

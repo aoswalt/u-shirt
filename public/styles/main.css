@@ -191,3 +191,6 @@ div[ng-click] {
   .browse .thumb {
     height: 225px;
     width: 195px; }
+
+.info-modal-content {
+  padding: 1rem; }

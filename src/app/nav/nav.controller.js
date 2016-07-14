@@ -4,6 +4,10 @@ angular.module("ushirt")
     const nav = this;
     nav.user = usersFactory.currentUser;
 
+    nav.showInfo = () => $uibModal.open({
+      templateUrl: "app/info/info-modal.html"
+    });
+
     nav.enter = () => $uibModal.open({
       templateUrl: "app/auth/auth-modal.html",
       controller: "authModalCtrl",

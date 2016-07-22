@@ -1,6 +1,6 @@
 # U-Shirt! - A t-shirt designer focused on shareability.
 
-<!-- [__Live Demo__](https://aoswalt.github.io/u-shirt) -->
+[__Live Demo__](https://aoswalt.github.io/u-shirt)
 
 ## Setup
 

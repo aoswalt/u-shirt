@@ -4,8 +4,9 @@
   "description": "A t-shirt designer with shareable designs",
   "main": "app.js",
   "scripts": {
+    "build": "gulp build",
     "postinstall": "bower install",
-    "start": "http-server public",
+    "serve": "http-server public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
